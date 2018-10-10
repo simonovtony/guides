@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * || (ИЛИ)
+     */
+    alert(true || true); // true
+    alert(true || false); // true
+    alert(false || true); // true
+    alert(false || false); // false
+
+    // 1 == true
+    // 0 == false
+    if (1 || 0) { // true || false
+        alert('Верно');
+    }
+
+    var hour = 9;
+    if (hour < 10 || hour > 18) {
+        alert('Офис до 10 или после 18 закрыт');
+    }
+
+    var hour = 12,
+        isWeekend = true;
+    if (hour < 10 || hour > 18 || isWeekend) {
+        alert('Офис до 10 или после 18 или в выходной закрыт');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**************************************************
+     * Установка компонентов даты
+     **************************************************/
+
+    /**
+     * Следующие методы позволяют устанавливать компоненты даты и времени:
+     */
+    var date = new Date();
+    /**
+     * 1) setFullYear(year [, month, date])
+     */
+    date.setFullYear(2018);
+    alert(date);
+
+    /**
+     * 2) setMonth(month [, date])
+     */
+    date.setMonth(3);
+    alert(date);
+    /**
+     * 3) setDate(date)
+     */
+    date.setDate(15);
+    alert(date);
+
+    /**
+     * 4) setHours(hour [, min, sec, ms])
+     */
+    date.setHours(15);
+    alert(date);
+
+    /**
+     * 5) setMinutes(min [, sec, ms])
+     */
+    date.setMinutes(30);
+    alert(date);
+
+    /**
+     * 6) setSeconds(sec [, ms])
+     */
+    date.setSeconds(10);
+    alert(date);
+
+    /**
+     * 7) setMilliseconds(ms)
+     */
+    date.setMilliseconds(486);
+    alert(date);
+
+    /**
+     * 8) setTime(milliseconds) (устанавливает всю дату по миллисекундам с 01.01.1970 UTC)
+     */
+    date.setTime(2342341231);
+    alert(date);
+
+    /**
+     * Все они, кроме setTime(), обладают также UTC-вариантом, например: setUTCHours().
+     * Как видно, некоторые методы могут устанавливать несколько компонентов даты одновременно,
+     * в частности, setHours. При этом если какая-то компонента не указана, она не меняется. Например:
+     */
+    var today = new Date();
+    today.setHours(0);
+    alert(today);
+
+    today.setUTCHours(0, 0, 0, 0);
+    alert(today);
+</script>
+</body>
+</html>

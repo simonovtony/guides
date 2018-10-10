@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * Пример использования
+     */
+    // Внутреннее имя позволяет функции надёжно обращаться к самой себе, где бы она ни находилась.
+    function f(n) {
+        return n ? n * f(n - 1) : 1;
+    }
+    alert(f(5));
+
+    var g = f;
+    f = null;
+
+    // запуск функции с новым именем - ошибка при выполнении!
+    // alert(g(5));
+
+    // Правильныый вариант
+    var f2 = function factorial(n) {
+        return n ? n * factorial(n - 1) : 1;
+    }
+
+    var g2 = f2;
+    f2 = null;
+    alert(g2(5));
+
+    // в IE8- false
+    // в остальных браузерах ошибка, т.к. имя factorial не видно
+    // alert( f2 === factorial )
+    // arguments.callee это depricated NFE
+
+    // Обратим внимание, что с Function Declaration так поступить нельзя.
+    // Такое «специальное» внутреннее имя функции задаётся только в синтаксисе Function Expression.
+</script>
+</body>
+</html>

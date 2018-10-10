@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <script>
+        mocha.setup('bdd');
+    </script>
+</head>
+
+<body>
+    <script>
+        /**
+         * Как правило, beforeEach/afterEach (before/after) используют, если необходимо произвести инициализацию,
+         * обнулить счётчики или сделать что-то ещё в таком духе между тестами (или их группами).
+         */
+        describe('Тест', function () {
+            before(function () {
+                alert('Начало тестов');
+            });
+
+            after(function () {
+                alert('Конец тестов');
+            });
+
+            beforeEach(function () {
+                alert('Вход в тест');
+            });
+
+            afterEach(function () {
+                alert('Выход из теста');
+            });
+
+            it('тест 1', function () {
+                alert('1');
+            });
+
+            it('тест 2', function () {
+                alert('2');
+            });
+        });
+    </script>
+
+    <div id="mocha"></div>
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>

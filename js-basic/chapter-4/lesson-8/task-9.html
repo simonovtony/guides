@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var list = {
+        value: 1,
+        next: {
+            value: 2,
+            next: {
+                value: 3,
+                next: {
+                    value: 4,
+                    next: null
+                }
+            }
+        }
+    };
+
+    function printList1(list) {
+        var result = '';
+        for (var item = list; item !== null; item = item.next) {
+            result += item.value + ' ';
+        }
+        return result;
+    }
+
+    alert('1: ' + printList1(list));
+
+    function printList2(list) {
+        if (list.next)
+            return list.value + ' ' + printList2(list.next)
+        else {
+            return list.value;
+        }
+    }
+
+    alert('2: ' + printList2(list));
+
+    function printList3(list) {
+        return printList2(list).split('').reverse().join('');
+    }
+
+    alert('3: ' + printList3(list));
+
+    function printList4(list) {
+        return printList1(list).split('').reverse().join('');
+    }
+
+    alert('4: ' + printList4(list));
+</script>
+</body>
+</html>

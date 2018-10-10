@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            /**
+             * Число "number"
+             */
+            var n = 123;
+            n = 12.345;
+            alert(1 / 0);  // Infinity, -Inifinty
+            alert("нечисло" * 2); // NaN
+
+            /**
+             * Строка "string"
+             */
+            var str = "Мама мыла рабу";
+            str = 'Одинарные кавычки тоже пойдут';
+
+            /**
+             * Булевый (логический) тип "boolean"
+             */
+            var checked = true;
+            checked = false;
+
+            /**
+             * Специальное значение "null"
+             */
+            var age = null;
+
+            /**
+             * Специальное значение "undefined"
+             */
+            var x;
+            alert(x);
+            var x = 123;
+            x = undefined;
+            alert(x);
+
+            /**
+             * Обьекты "object"
+             */
+            var user = { name: "Вася" };
+
+            /**
+             * Оператор typeof
+             * typeof x; typeof(x)
+             */
+            typeof undefined; // "undefined"
+            typeof 0; // "number"
+            typeof true; // "boolean"
+            typeof "foo"; // "string"
+            typeof {}; // "object"
+            /*
+            Результат typeof null == "object" – это официально признанная ошибка в языке,
+            которая сохраняется для совместимости. На самом деле null – это не объект, а отдельный тип данных.
+             */
+            typeof null; // "object"
+            /*
+            Функции мы пройдём чуть позже. Пока лишь заметим, что функции не являются
+            отдельным базовым типом в JavaScript, а подвидом объектов. Но typeof выделяет
+            функции отдельно, возвращая для них "function". На практике это весьма
+            удобно, так как позволяет легко определить функцию.
+             */
+            typeof function () {}; // "function"
+        </script>
+    </body>
+</html>

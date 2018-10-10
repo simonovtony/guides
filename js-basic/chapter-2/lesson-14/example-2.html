@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * Строковое преобразование
+     */
+    // String(value)
+    // и + в котором один операнд есть строка
+    // false     => "false"
+    // true      => "true"
+    // null      => "null"
+    // undefined => "undefined"
+    // 1         => "1"
+    // 1.0       => "1.0"
+    // "test"    => "test"
+
+    var a = true;
+    alert(a); // "true"
+
+    alert(String(null) === "null"); // "true"
+
+    alert(true + "test"); // "truetest"
+    alert("123" + undefined); // "123undefined"
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function bind(func, context, /**, args */) {
+        var bindArgs = [].slice.call(arguments, 2); // получаем массив аргументов функции bind с 3-го параметра
+        function wrapper() { // функция обертка
+            var args = [].sclice.call(arguments); // получаем массив аргументов функции wrapper
+            var unshiftArgs = bindArgs.concat(args); // соединяем массив bindArgs с массивом args
+            return func.apply(context, unshiftArgs); // вызываем функцию func методом apply который
+                                                     // подставляет контекст и соедененные аргументы
+        }
+        return wrapper;
+    }
+</script>
+</body>
+</html>

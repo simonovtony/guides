@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function fact(n) {
+        if (n == 1)
+            return n;
+        else
+            return n * fact(n - 1);
+    }
+
+    alert(fact(5));
+
+    function fact2(n) {
+        var result = 1;
+        for (var i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    alert(fact2(5));
+</script>
+</body>
+</html>

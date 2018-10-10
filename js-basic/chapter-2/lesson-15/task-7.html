@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var num = prompt('Введите число:');
+
+    if (num === null) {
+        alert('Отмена ввода');
+    } else if (isNaN(+num)){
+        alert('Введено не число');
+    } else {
+        var isNaturalNumber = true;
+        for (var i = 2; i < num; i++) {
+            if (num % i === 0) {
+                isNaturalNumber = false;
+                break;
+            }
+        }
+        if (isNaturalNumber) {
+            alert('Число натуральное');
+        } else {
+            alert('Число не натуральное');
+        }
+    }
+
+    ////////////////////////////////////////////
+
+    for (var num = 2; num <= 10; num++) {
+        var isNaturalNumber = true;
+        for (var i = 2; i < num; i++) {
+            if (num % i === 0) {
+                isNaturalNumber = false;
+                break;
+            }
+        }
+        if (isNaturalNumber) {
+            alert('Число натуральное ' + num);
+        } else {
+            alert('Число не натуральное ' + num);
+        }
+    }
+
+    ////////////////////////////////////////////
+    nextPrime:
+        for (var i = 2; i <= 10; i++) {
+
+            for (var j = 2; j < i; j++) {
+                if (i % j == 0) continue nextPrime;
+            }
+
+            alert( i ); // простое
+        }
+</script>
+</body>
+</html>

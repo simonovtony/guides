@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() === answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+        loginDone: function (result) {
+            alert(this.login + (result ? ' вошел в сайт ' : ' ошибка ввода'))
+        },
+        checkPassword: function () {
+            ask('Ваш пароль?',
+                this.password,
+                this.loginDone.bind(this, true),
+                this.loginDone.bind(this, false)
+            );
+//            var self = this;
+//            ask('Ваш пароль?',
+//                this.password,
+//                function () {
+//                    self.loginDone(true);
+//                },
+//                function () {
+//                    self.loginDone(false);
+//                }
+//            );
+        }
+    };
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+</script>
+</body>
+</html>

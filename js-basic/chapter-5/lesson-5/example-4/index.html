@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <p>Подключим библиотеку</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+
+    <p>Функция <code>_.defaults()</code> добавляет отсутствующие свойства.</p>
+    <script>
+        var user = {
+            name: 'Вася'
+        };
+
+        _.defaults(user, {
+            name: 'Не указано',
+            employer: 'Не указано'
+        });
+
+        alert(user.name);
+        alert(user.employer);
+        alert(_.size(user));
+    </script>
+</body>
+</html>

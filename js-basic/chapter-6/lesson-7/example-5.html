@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var user = {
+        firstName: 'Вася',
+        sayHi: function (who) {
+            alert(this.firstName + ': Привет, ' + who);
+        }
+    };
+    setTimeout(function () {
+        user.sayHi('Петя'); // "Вася: Привет, Петя"
+    }, 1000);
+</script>
+</body>
+</html>

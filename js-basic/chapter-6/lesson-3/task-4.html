@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function Calculator() {
+        this.methods = {
+            '+': function (a, b) {
+                return a + b;
+            }
+        };
+
+        this.calculate = function (expression) {
+            var a, b, op, parsed = expression.split(' ');
+
+            a  = parseFloat(parsed[0]);
+            op = parsed[1];
+            b  = parseFloat(parsed[2]);
+
+            if (op && !isNaN(a) && !isNaN(b))
+                return this.methods[op](a, b);
+            return NaN;
+        };
+
+        this.addMethod = function (method, predicate) {
+            this.methods[method] = predicate;
+        };
+    }
+
+    var calc = new Calculator();
+    alert(calc.calculate("3 + 7"));
+
+    var powerCalc = new Calculator;
+
+    powerCalc.addMethod('*', function (a, b) {
+        return a * b;
+    });
+
+    powerCalc.addMethod('/', function (a, b) {
+        return a / b;
+    });
+
+    powerCalc.addMethod('**', function (a, b) {
+        return Math.pow(a, b);
+    });
+
+    var result = powerCalc.calculate('2 ** 3');
+    alert( result );
+</script>
+</body>
+</html>

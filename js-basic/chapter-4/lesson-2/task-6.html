@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function fib(n) {
+        var a = 1,
+            b = 0,
+            x;
+        for (i = 0; i < n; i++) {
+            x = a + b;
+            a = b;
+            b = x;
+        }
+        return b;
+    }
+
+    function fibBinet(n) {
+        var phi = (1 + Math.sqrt(5)) / 2;
+        return Math.round(Math.pow(phi, n) / Math.sqrt(5));
+    }
+
+    alert(fib(77)); // 5527939700884757
+    alert(fibBinet(77)); // 5527939700884755
+
+    // Результат вычисления F77 получился неверным!
+    // Причина – в ошибках округления, ведь √5 – бесконечная дробь.
+    // Ошибки округления при вычислениях множатся и, в итоге, дают расхождение.
+</script>
+</body>
+</html>

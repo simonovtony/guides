@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function sayHi() {
+        alert(this.name);
+    }
+
+    sayHi.test = 5;
+
+    alert(sayHi.test);
+
+    var bound = sayHi.bind({
+        name: 'Вася',
+    });
+
+    alert(bound.test); // undefined
+
+    /**
+     * Результатом работы bind является функция-обёртка над sayHi. Эта функция –
+     * самостоятельный объект, у неё уже нет свойства test.
+     */
+</script>
+</body>
+</html>

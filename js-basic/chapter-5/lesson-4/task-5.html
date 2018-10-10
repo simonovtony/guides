@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function (a) {
+        return a % 2 == 0;
+    })); // 2, 4, 6
+
+    alert(filter(arr, inBetween(3, 6))); // 3, 4, 5, 6
+    alert(filter(arr, inArray([1, 2, 10]))); // 1, 2
+
+    function filter(items, callback) {
+        var arr = [];
+        for (var i = 0; i < items.length; i++) {
+            if (callback(items[i])) {
+                arr.push(items[i])
+            }
+        }
+        return arr;
+    }
+
+    function inBetween(a, b) {
+        return function (item) {
+            return a <= item && item <= b;
+        }
+    }
+
+    function inArray(items) {
+        return function (item) {
+            return items.indexOf(item) !== -1;
+        }
+    }
+</script>
+</body>
+</html>

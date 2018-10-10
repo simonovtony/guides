@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * Оператор вопросительный знак "?"
+     */
+    var access;
+    var age = prompt('Сколько вам лет?', '');
+
+    if (age > 14) {
+        access = true;
+    } else {
+        access = false;
+    }
+    alert(access);
+
+    access = age > 14 ? true : false;
+    alert(access);
+</script>
+</body>
+</html>

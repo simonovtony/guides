@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function checkSpam(str) {
+        if (typeof str === 'string') {
+            return !! (~str.toLowerCase().indexOf('viagra') || ~str.toLowerCase().indexOf('xxx'));
+        }
+        return false;
+    }
+
+    alert(checkSpam('buy ViAgRA now')); // true
+    alert(checkSpam('free xxxxx')); // true
+    alert(checkSpam("innocent rabbit")); // false
+</script>
+</body>
+</html>

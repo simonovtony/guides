@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function Calculator() {
+        this.x = 0;
+        this.y = 0;
+
+        this.read = function () {
+            this.x = +prompt('Введите первое число', 0);
+            this.x = isNaN(this.x) ? 0 : this.x;
+            this.y = +prompt('Введите второе число', 0);
+            this.y = isNaN(this.y) ? 0 : this.y;
+        };
+
+        this.sum = function () {
+            return this.x + this.y;
+        };
+
+        this.mul = function () {
+            return this.x * this.y;
+        };
+    }
+
+    var calculator = new Calculator();
+    calculator.read();
+    alert( 'Сумма=' + calculator.sum() );
+    alert( 'Произведение=' + calculator.mul() );
+</script>
+</body>
+</html>

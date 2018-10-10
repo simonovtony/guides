@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var user = { firstName: 'Вася' };
+    var admin = { firstName: 'Админ' };
+
+    function func() {
+        alert( this.firstName );
+    }
+
+    user.f = func;
+    admin.g = func;
+
+    user.f();
+    admin.g();
+    admin['g']();
+</script>
+</body>
+</html>

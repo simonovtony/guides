@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /************************************
+     * Счетчик-обьект
+     ************************************/
+
+    /**
+     * Ранее мы сделали счетчик.
+     * Напомню, как он выглядел:
+     */
+    function makeCounter() {
+        var currentCount = 1;
+        return function () {
+            return currentCount++;
+        }
+    }
+    var counter = makeCounter();
+    alert(counter()); // 1
+    alert(counter()); // 2
+    alert(counter()); // 3
+
+    /**
+     * Счётчик получился вполне рабочий, но вот только возможностей ему не хватает.
+     * Хорошо бы, чтобы можно было сбрасывать значение счётчика или начинать отсчёт
+     * с другого значения вместо 1 или… Да много чего можно захотеть от простого
+     * счётчика и, тем более, в более сложных проектах.
+     *
+     * !!! Чтобы добавить счётчику возможностей – перейдём с функции на полноценный объект:
+     */
+    function makeCounter2() {
+        var currentCount = 1;
+        return {
+            getNext: function () {
+                return currentCount++;
+            },
+            set: function(value) {
+                currentCounte = value;
+            },
+            reset: function() {
+                currentCount = 1;
+            }
+        };
+    }
+    var counter2 = makeCounter2();
+    alert(counter2.getNext()); // 1
+    alert(counter2.getNext()); // 2
+    counter2.set(5);
+    alert(counter2.getNext()); // 5
+
+    /**
+     * Теперь функция makeCounter возвращает не одну функцию, а объект с несколькими методами:
+     * 1)   getNext() – получить следующее значение, то, что раньше делал вызов counter().
+     * 2)   set(value) – поставить значение.
+     * 3)   reset() – обнулить счётчик.
+     *
+     * Все они получают ссылку [[Scope]] на текущий (внешний) объект переменных.
+     * Поэтому вызов любого из этих методов будет получать или модифицировать
+     * одно и то же внешнее значение currentCount.
+     */
+</script>
+</body>
+</html>

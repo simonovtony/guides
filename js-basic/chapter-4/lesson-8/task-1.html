@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var obj = {
+        className: 'open menu'
+    };
+
+    function addClass(obj, cls) {
+        var arr = obj.className.split(' ');
+        cls = cls.trim();
+        if (!~arr.indexOf(cls)) {
+            arr.push(cls);
+        }
+        obj.className = arr.join(' ');
+    }
+
+    addClass(obj, 'new');
+    addClass(obj, 'open');
+    addClass(obj, 'me');
+
+    alert(obj.className);
+</script>
+</body>
+</html>

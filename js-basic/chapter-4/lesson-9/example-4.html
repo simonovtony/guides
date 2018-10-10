@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /*********************************************
+     * map
+     *********************************************/
+
+    /**
+     * Метод «arr.map(callback[, thisArg])» используется для трансформации массива.
+     * Он создаёт новый массив, который будет состоять из результатов
+     * вызова callback(item, i, arr) для каждого элемента arr.
+     * Например:
+     */
+    var names = ['HTML', 'CSS', 'JavaScript'];
+    var nameLengths = names.map(function (name) {
+        return name.length;
+    });
+    alert(nameLengths);
+</script>
+</body>
+</html>

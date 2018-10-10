@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function f () {
+        alert(this);
+    }
+
+    var user = {
+        g: f.bind('Hello')
+    };
+
+    user.g(); // Hello
+</script>
+</body>
+</html>

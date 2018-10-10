@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * Значение ИЛИ
+     */
+    alert(1 || 0); // 1
+    alert(true || 'неважно что'); // true
+
+    alert(null || 1); // 1
+    alert(undefined || 0); // 0
+
+    // Используют в частности, что бы выбрать первое "истинное" значение из списка:
+    var undef;
+    var zero = 0;
+    var emptyStr = '';
+    var msg = 'Привет!';
+    var result = undef || zero || emptyStr || msg || 0;
+    alert(result); // выведет "Привет!" - первое значение, которое является true
+
+    // Если значения ложные, то ИЛИ возвратит последнее из них
+    alert(undefined || '' || false || 0); // 0
+</script>
+</body>
+</html>

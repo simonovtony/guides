@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var user = {
+        firstName: 'Василий',
+        export: this
+    };
+
+    // Объявление объекта само по себе не влияет на this. Никаких функций, которые
+    // могли бы повлиять на контекст, здесь нет.
+    // Так как код находится вообще вне любых функций, то this в нём равен window (в браузере так всегда
+    // для кода вне функций, вне зависимости от use strict).
+    // Получается, что в строке (*) мы имеем export: window, так что далее alert(user.export.firstName)
+    // выводит свойство window.firstName, которое не определено.
+    alert(user.export.firstName); // [object Window], но сейчас undefined
+</script>
+</body>
+</html>

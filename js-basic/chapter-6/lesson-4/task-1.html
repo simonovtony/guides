@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function User (fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperties(this, {
+            firstName: {
+                // value: undefined,
+                // writable: true,
+                configurable: true,
+                enumerable: true,
+                get: function () {
+                    return this.fullName.split(' ')[0];
+                },
+                set: function (value) {
+                    this.fullName = value + ' ' + this.lastName;
+                }
+            },
+            lastName: {
+                // value: undefined,
+                // writable: true,
+                configurable: true,
+                enumerable: true,
+                get: function () {
+                    return this.fullName.split(' ')[1];
+                },
+                set: function (value) {
+                    this.fullName = this.firstName + ' ' + value;
+                }
+            }
+        });
+
+//        Object.defineProperty(this, 'firstName', {
+//            // value: undefined,
+//            // writable: true,
+//            configurable: true,
+//            enumerable: true,
+//            get: function () {
+//                return this.fullName.split(' ')[0];
+//            },
+//            set: function (value) {
+//                this.fullName = value + ' ' + this.lastName;
+//            }
+//        })
+    }
+
+    var vasya = new User("Василий Попкин");
+
+    alert( vasya.firstName ); // Василий
+    alert( vasya.lastName ); // Попкин
+
+    vasya.lastName = 'Сидоров';
+
+    alert( vasya.fullName ); // Василий Сидоров
+</script>
+</body>
+</html>

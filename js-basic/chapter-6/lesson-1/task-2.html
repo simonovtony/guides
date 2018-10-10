@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var obj = {
+        go: function() {
+            alert(this);
+        }
+    }
+
+    (obj.go)(); // error, из за точки с запятой после закрытия обьекта
+</script>
+</body>
+</html>

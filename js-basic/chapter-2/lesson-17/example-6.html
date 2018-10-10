@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * Возврат значения
+     */
+    // Для возврата значения используется директива return.
+    function calcD(a, b, c) {
+        return b * b - 4 * a * c;
+    }
+    var test = calcD(-4, 2, 1);
+    alert(test); // 20
+
+    // Вызовов return может быть и несколько, например:
+    function checkAge(age) {
+        if (age > 18) {
+            return true;
+        } else {
+            return confirm('Родители разрешили?');
+        }
+    }
+
+    var age = prompt('Ваш возраст?');
+    if (checkAge(age)) {
+        alert('Доступ разрешен');
+    } else {
+        alert('В доступе отказано');
+    }
+
+    // Директива return может также использоваться без значения, чтобы прекратить выполнение и выйти из функции.
+    function showMovie(age) {
+        if (!checkAge(age)) {
+            return;
+        }
+        alert('Фильм не для всех');
+    }
+    showMovie(age);
+
+    // Значение функции без return и с пустым return
+    function doNothing() { }
+    alert(doNothing());
+    function doNothing2() { return; }
+    alert(doNothing2());
+
+</script>
+</body>
+</html>

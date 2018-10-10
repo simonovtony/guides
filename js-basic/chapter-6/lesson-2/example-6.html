@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var room = {
+        number: 777,
+
+        valueOf: function () {
+            return this.number;
+        },
+        toString: function () {
+            return this.number;
+        }
+    };
+
+    alert(+room); // 777, вызвался valueOf
+    delete room.valueOf; // valueOf удалён
+    alert(+room); // 777, вызвался toString
+</script>
+</body>
+</html>

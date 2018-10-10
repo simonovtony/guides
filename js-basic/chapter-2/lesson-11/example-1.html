@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * Возаимодействие с пользователем: alert, prompt, confirm
+     */
+    /**
+     * {undefined} alert(string1)
+     */
+    alert("Привет");
+    /**
+     * {(string|string2)} prompt(string1, string2 = null)
+     */
+    var years = prompt('Сколько вам лет?', 100);
+    alert('Вам ' + years + ' лет!');
+    /**
+     * {boolean}confirm(string1)
+     */
+    var isAdmin = confirm("Вы администратор?");
+    alert(isAdmin);
+</script>
+</body>
+</html>

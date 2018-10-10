@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * Условное обьявление функции
+     */
+    // В некоторых случаях «дополнительное удобство» Function Declaration может сослужить плохую службу.
+    // Function Declaration при use strict видны только внутри блока, в котором объявлены.
+    // Так как код в учебнике выполняется в режиме use strict, то будет ошибка.
+    var age = +prompt('Сколько вам лет?', 20);
+    if (age >= 18) {
+        function sayHi() {
+            alert('Прошу вас!');
+        }
+    } else {
+        function sayHi() {
+            alert('До 18 нельзя');
+        }
+    }
+    sayHi();
+
+    // лучше так
+    var age = +prompt('Сколько вам лет?');
+    var sayHi2;
+    if (age >= 18) {
+        sayHi2 = function () {
+            alert('Прошу вас!');
+        }
+    } else {
+        sayHi2 = function () {
+            alert('До 18 нельзя');
+        }
+    }
+    sayHi2();
+
+    // или даже так)
+    var age = +prompt('Сколько вам лет?');
+    var sayHi3 = age >= 18
+        ? function () { alert('Прошу вас') }
+        : function () { alert('До 18 нельзя') };
+    sayHi3();
+</script>
+</body>
+</html>

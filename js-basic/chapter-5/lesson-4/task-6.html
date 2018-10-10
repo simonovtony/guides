@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) {
+            /* 1)
+            var shooter = function shoot() {
+                alert(shoot.i);
+            };
+            shooter.i = i;
+            shooters.push(shooter);
+            */
+
+            /* 2
+            var shooter = (function(x) {
+                return function() {
+                    alert(x);
+                };
+            })(i);
+            shooters.push(shooter);
+            */
+
+            /* 3) */
+            (function(i) {
+                var shooter = function() {
+                    alert(i);
+                };
+                shooters.push(shooter);
+            })(i);
+        }
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0](); // стрелок выводит 10, а должен 0
+    army[5](); // стрелок выводит 10...
+    // .. все стрелки выводят 10 вместо 0,1,2...9
+</script>
+</body>
+</html>

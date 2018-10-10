@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <script>
+        mocha.setup('bdd');
+    </script>
+</head>
+
+<body>
+    <!--
+        Расширение спецификации
+    -->
+    <script>
+        function pow(x, n) {
+            return x ** n;
+        }
+    </script>
+
+    <script>
+        var assert = chai.assert;
+        describe ('pow', function () {
+            it ('при возведении в отрицательную степень результат NaN', function () {
+                assert(isNaN(pow(2, -1)), 'pow(2, -1) не NaN');
+            });
+
+            it ('при возведении в дробную степень результат NaN', function () {
+                assert(isNaN(pow(2, 1.5)), 'pow(2, 1.5) не NaN');
+            });
+        });
+    </script>
+
+    <div id="mocha"></div>
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function formatDate(date) {
+        var now = new Date();
+        var diff = now - date;
+        console.log(diff);
+        if (diff === 1) {
+            return 'Только что';
+        } else if (diff < 60 * 1000) {
+            return  diff / 1000 + ' сек, назад';
+        } else if (diff < 24 * 60 * 1000) {
+            return diff / 60 / 1000 + ' мин. назад';
+        } else {
+            return date.getFullYear() + '.'
+                + (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '.'
+                + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
+                + (date.getHours() + ':' + date.getMinutes());
+        }
+    }
+
+    alert( formatDate(new Date(new Date - 1)) ); // "только что"
+
+    alert( formatDate(new Date(new Date - 28 * 1000)) ); // "30 сек. назад"
+
+    alert( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // "5 мин. назад"
+
+    alert( formatDate(new Date(new Date - 86400 * 1000)) ); // вчерашняя дата в формате "дд.мм.гг чч:мм"
+</script>
+</body>
+</html>

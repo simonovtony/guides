@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var user = {
+        name: 'Василий',
+        sayHi: function() {
+            showName(this); // передать текущий обьект в showName
+        }
+    };
+
+    function showName(namedObj) {
+        alert( namedObj.name );
+    }
+
+    user.sayHi();
+</script>
+</body>
+</html>

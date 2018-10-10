@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function printArgs() {
+        var args = [].slice.call(arguments);
+        alert(args.join(', '));
+    }
+
+    printArgs('Привет', 'мой', 'мир');
+</script>
+</body>
+</html>

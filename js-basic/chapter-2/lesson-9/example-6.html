@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * Сравнение с null и undefined
+     */
+    // Интуитивно кажется что null/undefined эквивалентны нулю, но это не так
+    // Значения null и undefined равны друг другу и не равны чему бы то ни было еще.
+    // При преобразовании в число:
+    // null становится 0
+    // undefined становится NaN
+    alert(undefined == null); // true
+    alert(undefined === null); // false
+
+    /**
+     * Некоректный результат сравнения null с 0
+     */
+    alert(null > 0);  // false
+    alert(null == 0); // false
+    // А теперь...
+    alert(null >= 0); // true
+    // Сравнение честно приводит к числу, получается ноль.
+    // А при проверке равенства значения null и undefined обрабатываются
+    // особым образом: они равны друг другу, но не равны чему-то ещё.
+    alert(null === null); // true
+
+    /**
+     * Несравнимый undefined
+     */
+    // Значение undefined вообще нельзя сравнивать
+    alert(undefined < 0); // false
+    alert(undefined > 0); // false
+    alert(undefined == 0); // false
+    alert(undefined === undefined); // true
+
+    /**
+     * Итого
+     */
+    // Вывод: любые сравнения с undefined/null, кроме точного ===, следует делать с осторожностью.
+    // Желательно не использовать сравнения >= > < <= с ними, во избежание ошибок в коде.
+</script>
+</body>
+</html>

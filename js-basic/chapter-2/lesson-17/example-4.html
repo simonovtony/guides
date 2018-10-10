@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * Параметры
+     */
+    // При вызове функции ей можно передать данные, которые та использует по своему усмотрению.
+    function showMessage(from, text) { // параметры from, text
+        from = '** ' + from + ' **'; // здесь может быть сложный код оформления
+        alert(from + ': ' + text);
+    }
+    showMessage('Маша', 'Привет!');
+    showMessage('Маша', 'Как дела?');
+
+    // Параметры копируются в локальные переменные функции.
+    function showMessage2(from ,text) {
+        from = '** ' + from + ' **';
+        alert(from + ': ' + text);
+    }
+    var from = 'Маша';
+    showMessage(from, 'Привет!');
+    alert(from);
+</script>
+</body>
+</html>

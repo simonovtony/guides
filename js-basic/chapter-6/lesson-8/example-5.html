@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    // вспомогательная функция для проверки на число
+    function checkNumber(value) {
+        return typeof value === 'number';
+    }
+
+    // декоратор, проверяющий типы для f
+    // второй аргумент checks - массив с функциями для проверки
+    function typeCheck(f, checks) {
+        return function () {
+            for (var i = 0; i < checks.length; i++) {
+                if (!checks[i](arguments[i])) {
+                    alert('Некорректный тип аргумента номер ' + i);
+                    return;
+                }
+            }
+            return f.apply(this, arguments);
+        };
+    }
+
+    function sum(a, b) {
+        return a + b;
+    }
+
+    // обернём декоратор для проверки
+    sum = typeCheck(sum, [checkNumber, checkNumber]);  // оба аргумента - числа
+
+    alert(sum(1, 2)); // 3
+
+    sum(true, null); // error
+    sum(1, ['array', 'in', 'sum?!?']); // error
+</script>
+</body>
+</html>

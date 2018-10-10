@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+        <script src="/path/to/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+        <script src="/js/script1.js"></script>
+        <script src="js/script2.js"></script>
+
+        <script src="file.js">
+            alert(1); // так как указан src, то внутренняя часть тега игнорируется
+        </script>
+
+        <script src="file.js"></script>
+        <script>
+            alert(1);
+        </script>
+
+    </body>
+</html>

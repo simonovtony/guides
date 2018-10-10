@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var str;
+    var arr = [];
+    var sum = 0;
+    while(true) {
+        str = prompt('Введите число: ', '');
+        if (str === null || str === '' || !isNumeric(str)) {
+            break;
+        }
+        arr.push(parseFloat(str));
+    }
+
+    for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+
+    alert('Сумма чисел: ' + sum);
+
+    function isNumeric(num) {
+        return !isNaN(parseFloat(num)) && isFinite(num);
+    }
+</script>
+</body>
+</html>

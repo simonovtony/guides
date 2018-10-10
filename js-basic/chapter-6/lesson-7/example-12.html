@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function mul (a, b) {
+        return a * b;
+    }
+
+    var double = mul.bind(null, 2);
+
+    alert(double(3)); // 6
+    alert(double(4)); // 8
+    alert(double(5)); // 10
+</script>
+</body>
+</html>

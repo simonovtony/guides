@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * new Function
+     */
+    // Существует ещё один способ создания функции, который используется
+    // очень редко, но упомянем и его для полноты картины.
+    // Он позволяет создавать функцию полностью «на лету» из строки, вот так:
+    // new Function(params, code)
+    var sum = new Function ('a, b', 'return a + b;');
+    var result = sum(1, 2);
+    alert(result);
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function sum(arr) {
+        return arr.reduce(function (a, b) {
+            return a + b;
+        }, /* arr[0] */);
+    }
+    alert(sum([1, 2, 3]));
+
+    function sumArgs() {
+//        arguments.reduce = [].reduce;
+//        return arguments.reduce(function (a, b) {
+//            return a + b;
+//        });
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+    alert(sumArgs(1, 2, 3))
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var obj = {
+        a: 1,
+        b: 2,
+        internal: 3
+    };
+
+    Object.defineProperty(obj, 'internal', {
+        enumerable: false
+    });
+
+    alert(Object.keys(obj));
+    alert(Object.getOwnPropertyNames(obj));
+</script>
+</body>
+</html>

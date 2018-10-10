@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**********************************************
+     * Бенчмаркинг
+     **********************************************/
+
+    /**
+     * Допустим, у нас есть несколько вариантов решения задачи, каждый описан функцией.
+     * Как узнать, какой быстрее?
+     * Для примера возьмем две функции, которые бегают по массиву:
+     */
+    function walkIn(arr) {
+        for (var key in arr) arr[key]++;
+    }
+    function walkLength(arr) {
+        for (var i = 0; i < arr.length; i++) arr[i]++;
+    }
+
+    /**
+     * Чтобы померять, какая из них быстрее, нельзя запустить один раз walkIn, один раз walkLength
+     * и замерить разницу. Одноразовый запуск ненадежен, любая мини-помеха исказит результат.
+     * Для правильного бенчмаркинга функция запускается много раз, чтобы сам тест занял
+     * существенное время. Это сведет влияние помех к минимуму. Сложную функцию можно
+     * запускать 100 раз, простую – 1000 раз…
+     * Померяем, какая из функций быстрее:
+     */
+
+    var arr = [];
+    for (var i = 0; i < 1000; i++) arr[i] = 0;
+
+    function walkIn(arr) {
+        for (var key in arr) arr[key]++;
+    }
+
+    function walkLength(arr) {
+        for (var i = 0; i < arr.length; i++) arr[i]++;
+    }
+
+    function bench(f) {
+        var date = new Date();
+        for (var i = 0; i < 10000; i++) f(arr);
+        return new Date - date;
+    }
+
+    alert('Время walkIn: ' + bench(walkIn) + 'мс');
+    alert('Время walkLength: ' + bench(walkLength) + 'мс');
+
+    /**
+     * Теперь представим себе, что во время первого бенчмаркинга bench(walkIn)
+     * компьютер что-то делал параллельно важное (вдруг) и это занимало ресурсы,
+     * а во время второго – перестал. Реальная ситуация? Конечно реальна, особенно
+     * на современных ОС, где много процессов одновременно.
+     *
+     * Гораздо более надёжные результаты можно получить, если весь пакет тестов прогнать много раз.
+     */
+
+    var arr = [];
+    for (var i = 0; i < 1000; i++) arr[i] = 0;
+
+    function walkIn(arr) {
+        for (var key in arr) arr[key]++;
+    }
+
+    function walkLength(arr) {
+        for (var i = 0; i < arr.length; i++) arr[i]++;
+    }
+
+    function bench(f) {
+        var date = new Date();
+        for (var i = 0; i < 10000; i++) f(arr);
+        return new Date - date;
+    }
+
+    var timeIn = 0, timeLength = 0;
+    for (var i = 0; i < 100; i++) {
+        timeIn += bench(walkIn);
+        timeLength += bench(walkLength);
+    }
+
+    alert('Время walkIn: ' + bench(walkIn) + 'мс');
+    alert('Время walkLength: ' + bench(walkLength) + 'мс');
+</script>
+</body>
+</html>

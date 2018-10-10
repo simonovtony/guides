@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- подключаем стили Mocha, для отображения результатов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <!-- подключаем библиотеку Mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <!-- настраиваем Mocha: предстоит BDD-тестированию -->
+    <script>
+        mocha.setup('bdd');
+    </script>
+    <!-- подключаем Chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <!-- в Chai есть много всего, выносим assert в глобальную область -->
+    <script>
+        var assert = chai.assert;
+    </script>
+</head>
+
+<body>
+    <script>
+        // пустая (ошибка)
+        // function pow(x, n) {
+        //    /* код функции, пока что пустой */
+        // }
+
+        // неправильная (ошибка)
+        // function pow(x, n) {
+        //    return 8; // :) мы - мошенники!
+        // }
+
+        function pow(x, n) {
+//            var result = 1;
+//            for (var i = 0; i < n; i++) {
+//                result *= x;
+//            }
+            return x ** n;
+        }
+    </script>
+
+    <!-- В этом скрипте находятся спеки -->
+    <script>
+        // первый вариант
+        describe("pow", function() {
+            it("возводит в n-ю степень", function() {
+                assert.equal(pow(2, 3), 8);
+                assert.equal(pow(3, 4), 81);
+            });
+        });
+
+        // второй вариант и он предпочтительнее
+        describe("pow", function () {
+            it("при возведении 2 в 3-ю степень результат 8", function () {
+                assert.equal(pow(2, 3), 8);
+            });
+            it("при возведении 3 в 4-ю степень результат 81", function () {
+                assert.equal(pow(3, 4), 81);
+            });
+        });
+
+        describe("pow", function () {
+            function makeTest(x) {
+                var expected = x * x * x;
+                it("при возведении " + x + " в степень 3 результат: " + expected, function () {
+                    assert.equal(pow(x, 3), expected);
+                });
+            }
+
+            for (var x = 1; x <= 5; x++) {
+                makeTest(x);
+            }
+        });
+
+        describe("pow", function () {
+            describe("возводит x в степень n", function () {
+                function makeTest(x) {
+                    var expected = x * x * x;
+                    it("при возведении " + x + " в степень 3 результат: " + expected, function () {
+                        assert.equal(pow(x, 3), expected);
+                    });
+                }
+
+                for (var x = 1; x <= 5; x++) {
+                    makeTest(x);
+                }
+            });
+
+            // ... дальнейшие тесты it и подблоки describe ...
+        });
+    </script>
+
+    <!-- В элементе с id="mocha" будут результаты тестов -->
+    <div id="mocha"></div>
+
+    <!-- запустить тесты! -->
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>

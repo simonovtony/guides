@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var arr = ["Есть", "жизнь", "на", "Марсе"];
+    var arrLength = [];
+    for (var i = 0; i < arr.length; i++) {
+        arrLength[i] = arr[i].length;
+    }
+    alert( arrLength ); // 4,5,2,5
+
+    var arr = ["Есть", "жизнь", "на", "Марсе"];
+    var arrLength = arr.map(function (str) {
+        return str.length;
+    });
+    alert(arrLength);
+</script>
+</body>
+</html>

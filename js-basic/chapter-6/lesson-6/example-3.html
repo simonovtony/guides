@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function printArgs() {
+        arguments.join = [].join; // одолжили метод (1)
+        var argStr = arguments.join(':'); // (2)
+        alert(argStr); // сработает и выведет 1:2:3
+    }
+
+    printArgs(1, 2, 3);
+</script>
+</body>
+</html>

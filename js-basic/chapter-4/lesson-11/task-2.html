@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var date = new Date(2012, 0, 3);
+
+    alert(getWeekDay(date));
+//    alert(date.toLocaleString('ru', { weekday: 'short' }));
+
+    function getWeekDay(date) {
+        var days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+        const day = date.getDay();
+        return days[day];
+    }
+</script>
+</body>
+</html>

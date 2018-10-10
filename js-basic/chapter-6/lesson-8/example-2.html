@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function f (x) { } // любая функция
+
+    var timers = {}; // объект для таймеров
+
+    function timingDecorator(f, timer) {
+        return function () {
+            var start = performance.now();
+            var result = f.apply(this, arguments);
+            if (!timers[timer]) timers[timer] = 0;
+            timers[timer] += performance.now() - start;
+            return result;
+        }
+    }
+
+    f = timingDecorator(f, "myFunc"); // отдекорировали
+
+    // запускаем
+    f(1);
+    f(2);
+    f(3); // функция работает как раньше, но время подсчитывается
+
+    alert(timers.myFunc); // общее время выполнения всех вызовов f
+</script>
+</body>
+</html>

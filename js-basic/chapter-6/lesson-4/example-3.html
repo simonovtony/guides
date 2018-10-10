@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var user = {
+        name: 'Вася',
+        toString: function () {
+            return this.name;
+        }
+    };
+
+    for (var key in user) alert(key); // name, toString
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /**
+     * Тип имеет значение
+     */
+
+    var arg = prompt('Введите arg?');
+
+    switch (arg) {
+        case '0': // arg === '0' || arg === '1'
+        case '1':
+            alert('Один или ноль');
+            break;
+        case '2': // arg === '2'
+            alert('Два');
+            break;
+        case 3: // arg === 3, но типы их разные, так что не выполнится никогда
+            alert('Никогда не выполнится');
+            break;
+        default:
+            alert('Неизвестное значение: ' + arg);
+    }
+</script>
+</body>
+</html>

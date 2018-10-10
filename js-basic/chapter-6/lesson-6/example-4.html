@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function join(separator) {
+        if (!this.length) return '';
+        var str = this[0];
+        for (var i = 1; i < this.length; i++) {
+            str += separator + this[i];
+        }
+        return str;
+    }
+    var array = [1, 2, 3];
+    array.join = join; // плохо перезаписывать метод
+    alert(arr.array(':'));
+</script>
+</body>
+</html>

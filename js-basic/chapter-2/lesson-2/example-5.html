@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            function addScript(src) {
+                var script = document.createElement('script');
+                script.src = src;
+                script.async = false; // чтобы гарантировать порядок
+                document.head.appendChild(script)
+            }
+            addScript('1.js');
+            addScript('2.js');
+            addScript('3.js');
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

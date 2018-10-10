@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    /***************************************
+     * reverse
+     ***************************************/
+
+    /**
+     * Метод arr.reverse() меняет порядок элементов в массиве на обратный.
+     */
+    var arr = [1, 2, 3];
+    arr.reverse();
+    alert(arr);
+
+    /***************************************
+     * concat
+     ***************************************/
+
+    /**
+     * Метод arr.concat(value1, value2, … valueN) создаёт новый массив,
+     * в который копируются элементы из arr, а также value1, value2, ... valueN.
+     * Например:
+     */
+    var arr = [1, 2];
+    var newArr = arr.concat(3, 4);
+    alert(newArr);
+
+    /**
+     * У concat есть одна забавная особенность.
+     * Если аргумент concat – массив, то concat добавляет элементы из него.
+     * Например:
+     */
+    var arr = [1, 2];
+    var newArr = arr.concat([3, 4], 5);
+    alert(newArr);
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function ucFirst(str) {
+        if (typeof str === 'string') {
+            return str.charAt(0) + str.slice(1 /*, str.length*/);
+        }
+        return '';
+    }
+
+    alert(ucFirst('кушать хлеб'));
+    alert(ucFirst(''));
+</script>
+</body>
+</html>

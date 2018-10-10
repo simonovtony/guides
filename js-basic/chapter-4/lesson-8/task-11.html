@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function unique(arr) {
+        var obj = {};
+        for (var i = 0; i < arr.length; i++) {
+            if (!obj[arr[i]]) obj[arr[i]] = 0;
+            obj[arr[i]]++;
+        }
+        var arr = [];
+        for (var key in obj) {
+            arr.push(key);
+        }
+        return arr;
+    }
+
+    var strings = ["кришна", "кришна", "харе", "харе",
+        "харе", "харе", "кришна", "кришна", "8-()"
+    ];
+
+    alert( unique(strings) ); // кришна, харе, 8-()
+</script>
+</body>
+</html>

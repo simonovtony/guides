@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    "use strict";
+
+    var salaries = {
+        "Вася": 100,
+        "Петя": 200,
+        "Даша": 250
+    };
+
+    var max = {
+        name: "",
+        salary: 0,
+    };
+    for (var key in salaries) {
+        if (max.salary < salaries[key]) {
+            max.name = key;
+            max.salary = salaries[key];
+        }
+    }
+    alert(max.name || 'нет сотрудников');
+
+</script>
+</body>
+</html>

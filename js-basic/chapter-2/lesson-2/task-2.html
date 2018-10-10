@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <!-- загрузяться в порядке очереди и так же выполняться -->
+        <script src="big.js"></script>
+        <script src="small.js"></script> <!-- В порядке очереди -->
+
+        <!-- загрузяться асинхронно, и выполнятся так же, в зависимости от размера файла -->
+        <script async src="big.js"></script>
+        <script async src="small.js"></script> <!-- первый загрузится и выполнится потому что маленький -->
+
+        <!-- загрузятся асинхронно в зависимости от размера файла, но выполнятся в порядке очереди -->
+        <script defer src="big.js"></script>
+        <script defer src="small.js"></script> <!-- первый загрузится потому что маленький, но вторым выполнится -->
+    </body>
+</html>

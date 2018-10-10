@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function User () {
+        this.sayHi = function () {
+            alert(this.name);
+        };
+    }
+
+    User.createAnonymous = function () {
+        var user  = new User();
+        user.name = 'Аноним';
+        return user;
+    };
+
+    User.createFromData = function(userData) {
+        var user = new User();
+        user.name = userData.name;
+        user.age  = userData.age;
+        return user;
+    };
+
+    var guest = User.createAnonymous();
+    guest.sayHi();
+
+    var knownUser = User.createFromData({
+        name: 'Вася',
+        age: 25,
+    });
+    knownUser.sayHi();
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var obj = {
+        test: 5
+    };
+
+    var descriptor = Object.getOwnPropertyDescriptor(obj, 'test');
+
+    delete descriptor.value;
+    delete descriptor.writable;
+
+    descriptor.get = function () {
+        alert("Preved :)");
+    };
+
+    delete obj.test;
+
+    Object.defineProperty(obj, 'test', descriptor);
+
+    obj.test; // 'Preved :)'
+</script>
+</body>
+</html>
