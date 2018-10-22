@@ -1,0 +1,16 @@
+<script>
+
+    var user = {
+        name: "Вася",
+        age: 25,
+        window: window
+    };
+
+    var str = JSON.stringify(user, function (key, value) {
+        if (key == 'window') return undefined;
+        return value;
+    });
+
+    alert(str); // {"name":"Вася","age":25}
+
+</script>

@@ -1,0 +1,27 @@
+<script>
+
+    var user = {
+        name: "Вася",
+        age: 25,
+        roles: {
+            isAdmin: false,
+            isEditor: true
+        }
+    };
+
+    var str = JSON.stringify(user, "", 4);
+
+    alert(str);
+
+    /* Результат -- красиво сериализованный объект:
+        {
+            "name": "Вася",
+            "age": 25,
+            "roles": {
+                "isAdmin": false,
+                "isEditor": true
+            }
+        }
+    */
+
+</script>

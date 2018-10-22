@@ -1,0 +1,21 @@
+<script>
+
+    function readData() {
+        var data = '{ "name": "Вася", "age": 30 }';
+
+        try {
+            blabla();
+        } catch (e) {
+            if (e.name != 'SyntaxError') {
+                throw e;
+            }
+        }
+    }
+
+    try {
+        readData();
+    } catch (e) {
+        alert('Поймал во внешнем catch: ' + e);
+    }
+
+</script>

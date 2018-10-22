@@ -1,0 +1,19 @@
+<script>
+
+    function globalEval(code) {
+        window.execScript 
+            ? window.execScript(code) 
+            : window.eval(code);
+    }
+
+    var a = 1;
+
+    (function () {
+
+        var a = 2;
+
+        globalEval(' alert(a) '); // 1
+
+    })();
+
+</script>

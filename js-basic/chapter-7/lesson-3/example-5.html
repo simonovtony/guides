@@ -1,0 +1,13 @@
+<script>
+
+    var timerId = setTimeout(function () {
+        alert(1); 
+    }, 1000);
+
+    alert(timerId); // число - идентификатор таймера
+
+    clearTimeout(timerId);
+
+    alert(timerId); // всё ещё число, оно не обнуляется после отмены
+
+</script>

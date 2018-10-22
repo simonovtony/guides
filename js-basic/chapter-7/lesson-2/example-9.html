@@ -1,0 +1,12 @@
+<script>
+
+    var user = {
+        name: "Вася",
+        age: 25,
+        window: window
+    };
+
+    alert(JSON.stringify(user)); // ошибка!
+    // TypeError: Converting circular structure to JSON (текст из Chrome)
+
+</script>

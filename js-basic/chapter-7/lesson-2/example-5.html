@@ -1,0 +1,17 @@
+<script>
+
+    var schedule = '{ \
+        "events": [ \
+            { "title": "Конференция", "date": "2014-11-30T12:00:00.000Z" }, \
+            { "title": "День рождения", "date": "2015-04-18T12:00:00.000Z" } \
+        ] \
+    }';
+
+    schedule = JSON.parse(schedule, function (key, value) {
+        if (key == 'date') return new Date(value);
+        return value;
+    });
+
+    alert( schedule.events[1].date.getDate() ); // сработает!
+
+</script>

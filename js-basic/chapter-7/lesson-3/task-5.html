@@ -1,0 +1,24 @@
+<script>
+
+    var i;
+
+    var timer = setInterval(function () {
+        i++;
+    }, 10);
+
+    setTimeout(function () {
+        clearInterval(timer);
+        alert(i); // 100000001
+    }, 50);
+
+    function f() {
+        for (i = 0; i < 1e8; i++) f[i % 2] = i;
+    }
+
+    f();
+
+    /**
+        3. Да, один раз, сразу после выполнения f.
+    */
+
+</script>

@@ -1,0 +1,19 @@
+<script>
+
+    try {
+
+        alert('Начало блока try');  // (1)
+
+        lalala;
+
+        alert('Конец блока try');   // (2)
+
+    } catch (e) {
+
+        alert('Ошибка ' + e.name + ': ' + e.message + '\n' + e.stack); // (3)
+
+    }
+
+    alert('Потом код продолжит выполнение...');
+
+</script>

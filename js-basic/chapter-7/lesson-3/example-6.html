@@ -1,0 +1,12 @@
+<script>
+
+    var timerId = setInterval(function () {
+        alert("тик");
+    }, 2000);
+
+    setTimeout(function () {
+        clearTimeout(timerId);
+        alert('стоп');
+    }, 5000);
+
+</script>

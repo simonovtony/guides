@@ -1,0 +1,31 @@
+<script>
+
+    var leader = {
+        name: "Василий Иванович",
+
+        id: 1,
+        soldierIds: [],
+    };
+
+    var soldier = {
+        name: "Петька",
+
+        id: 1,
+        leaderIds: [],
+    };
+
+    /** Нельзя преобразовать круговую структуру
+    leader.soldier = soldier;
+    soldier.leader = leader;
+    var team = [leader, soldier];
+    */
+
+    leader.soldierIds = [soldier.id];
+    soldier.leaderIds = [leader.id];
+    var team = [leader, soldier];
+
+    alert(JSON.stringify(team));
+
+
+
+</script>

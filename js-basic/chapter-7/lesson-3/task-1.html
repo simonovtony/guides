@@ -1,0 +1,16 @@
+<script>
+
+    function printNumbersInterval() {
+        var i = 1;
+        var intervalId = setInterval(function () {
+            console.log(i);
+            if (i == 20) {
+                clearInterval(intervalId);
+            }
+            i++
+        }, 100);
+    }
+
+    printNumbersInterval();
+
+</script>

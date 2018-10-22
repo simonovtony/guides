@@ -1,0 +1,15 @@
+<script>
+
+    function sayHi(who) {
+        if (who.forEach) {
+            who.forEach(sayHi);
+        } else {
+            alert('Привет, ' + who);
+        }
+    }
+
+    sayHi("Вася"); 
+    sayHi(["Саша", "Петя"]); 
+    sayHi(["Саша", "Петя", ["Маша", "Юля"]]); 
+
+</script>

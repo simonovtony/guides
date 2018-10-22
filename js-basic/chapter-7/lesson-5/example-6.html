@@ -1,0 +1,13 @@
+<script>
+
+    var data = '{ "age": 30 }';
+
+    try {
+        var user = JSON.parse(data); // выполниться
+        alert(user.name); // undefined
+    } catch (error) {
+        // не выполнится
+        alert('Извините, в данных ошибка');
+    }
+
+</script>

@@ -1,0 +1,24 @@
+<script>
+
+    /** 1. Через setInterval, с остановкой по окончании работы:
+
+        timer = setInterval(function() {
+            if (есть еще что подсветить) highlight();
+            else clearInterval(timer);
+        }, 10);
+    */
+
+    /** 2. Через рекурсивный setTimeout:
+        setTimeout(function go() {
+            highlight();
+            if (есть еще что подсветить) setTimeout(go, 10);
+        }, 10);
+    */
+
+    /**
+    Нужно выбрать вариант 2, который гарантирует 
+    браузеру свободное время между выполнениями 
+    highlight.
+    */
+
+</script>

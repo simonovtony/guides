@@ -1,0 +1,14 @@
+<script>
+
+    var data = 'Has Error';
+
+    try {
+        var user = JSON.parse(data); // ошибка при выполнении
+        alert(user.name); // не сработает
+    } catch (e) {
+        alert('Извините, в данных ошибка, мы попробуем получить их еще раз');
+        alert(e.name);
+        alert(e.message);
+    }
+
+</script>

@@ -1,0 +1,10 @@
+<script>
+
+    function getClass(obj) {
+        return {}.toString.call(obj).slice(8, -1);
+    }
+
+    alert( getClass(new Date) );
+    alert( getClass([1, 2, 3]) )
+
+</script>

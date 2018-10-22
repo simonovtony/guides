@@ -1,0 +1,11 @@
+<script>
+
+    try {
+        setTimeout(function () {
+            throw new Error(); // вылетит в консоль
+        }, 1000);
+    } catch (e) {
+        alert('не сработает');
+    }
+
+</script>

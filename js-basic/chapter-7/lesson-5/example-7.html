@@ -1,0 +1,15 @@
+<script>
+
+    var data = '{ "age": 30 }';
+
+    try {
+        var user = JSON.parse(data); // выполниться без ошибок
+        if (!user.name) {
+            throw new SyntaxError("Данные некорректны");
+        }
+        alert(user.name);
+    } catch (e) {
+        alert('Извините, в данных ошибка');
+    }
+
+</script>

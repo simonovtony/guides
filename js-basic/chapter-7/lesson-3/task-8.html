@@ -1,0 +1,35 @@
+<script>
+
+    function debounce(f, time) {
+        var timer = null;
+        return function () {
+            var self = this;
+            var selfArguments = arguments;
+            if (timer) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(function tick() {
+                f.apply(self, selfArguments);
+                timer = null;
+            }, time);
+        }
+    }
+
+    function f() { 
+        console.log(arguments[0]);
+    }
+
+    var f = debounce(f, 1000);
+
+    f(1);
+    f(2);
+
+    setTimeout(function () {
+        f(3);
+    }, 1000);
+
+    setTimeout(function () {
+        f(4);
+    }, 1200);
+
+</script>

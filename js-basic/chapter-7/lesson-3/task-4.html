@@ -1,0 +1,20 @@
+<script>
+
+    setTimeout(function() {
+        alert( i ); // 100000000
+    }, 100);
+
+    var i;
+
+    function hardWork() {
+    
+    for (i = 0; i < 1e8; i++) hardWork[i % 2] = i;
+    }
+
+    hardWork();
+
+    /**
+        3, срабатывание будет после окончания работы 
+        hardWork.
+    */
+</script>

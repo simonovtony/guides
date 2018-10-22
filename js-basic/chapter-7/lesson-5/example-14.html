@@ -1,0 +1,13 @@
+<script>
+
+    function func() {
+        try {
+            return 1;
+        } finally {
+            alert('Вызов завершен');
+        }
+    }
+
+    alert(func()); // сначала finally, потом 1
+
+</script>
