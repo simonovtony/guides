@@ -1,0 +1,46 @@
+<script>
+
+    function CoffeeMachine (power, capacity) {
+        var waterAmount = 0;
+        var WATER_HEAD_CAPACITY = 4200;
+
+        function getTimeToBoild() {
+            return waterAmount * WATER_HEAD_CAPACITY * 80 / power;
+        }
+
+        this.setWaterAmount = function (amount) {
+            waterAmount = amount;
+        };
+
+        this.getWaterAmount = function () {
+            return waterAmount;
+        };
+
+        function onReady() {
+            alert('Кофе готов!')
+        }
+
+        this.setOnReady = function (func) {
+            onReady = func;
+        };
+
+        this.run = function () {
+            // setTimeout(onReady, getTimeToBoild());
+            setTimeout(function () {
+                onReady();
+            }, getTimeToBoild())
+        };
+    }
+
+    var coffeeMachine = new CoffeeMachine(20000, 500);
+
+    coffeeMachine.setWaterAmount(150);
+
+    coffeeMachine.setOnReady(function () {
+        var amount = coffeeMachine.getWaterAmount();
+        alert('Готов кофе: ' + amount + 'мл');
+    });
+
+    coffeeMachine.run();
+
+</script>
