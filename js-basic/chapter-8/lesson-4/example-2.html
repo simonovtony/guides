@@ -1,0 +1,28 @@
+<script>
+
+    function Machine() {
+        var enabled = false;
+
+        this.enable = function () {
+            enabled = true;
+        };
+
+        this.disable = function () {
+            enabled = false;
+        };
+        
+    }
+
+    function CoffeeMachine(power) {
+        Machine.call(this);
+
+        this.enable();
+
+        // ошибка, переменная не определена!
+        alert(enabled);
+    }
+
+    var coffeeMachine = new CoffeeMachine(10000);
+
+
+</script>
