@@ -1,0 +1,102 @@
+<script>
+
+    function Machine(power) {
+        this._power = power;
+        this._enabled = false;
+
+        this.enable = function () {
+            this._enabled = true;
+        };
+
+        this.disable = function () {
+            this._enabled = false;
+        }
+    }
+
+    function Fridge(power) {
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxFoodAmount = power / 100;
+
+        this.addFood = function () {
+            if (!this._enabled) throw new Error('ошибка, холодильник выключен');
+            if (food.length + arguments.length > this._power / 100) {
+                throw new Error("ошибка, слишком много еды");
+            }
+            for (var i = 0; i < arguments.length; i++) {
+                food.push(arguments[i]); // добавить всё из arguments
+            }
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+
+        this.removeFood = function (item) {
+            // var index = food.indexOf(item);
+            // if (~index) food.slice(index, 1);
+            if (!(typeof item == 'object' && 'title' in item && 'calories' in item))
+                return;
+            for (var i = 0; i < food.length; i++) {
+                var foodItem = food[i];
+                if (item.title === foodItem.title && item.calories == foodItem.calories) {
+                    food.splice(i, 1);
+                    break;
+                }
+            }
+        };
+
+        this.filterFood = function (callback) {
+            // return food.filter(callback);
+            var filter = [];
+            for(var i = 0; i < food.length; i++) {
+                if (callback(food[i])) {
+                    filter.push({
+                        title: food[i].title,
+                        calories: food[i].calories
+                    });
+                }
+            }
+            return filter;
+        };
+    }
+
+    var fridge = new Fridge(500);
+
+    fridge.enable();
+
+    fridge.addFood({
+        title: 'котлета',
+        calories: 100
+    });
+    fridge.addFood({
+        title: 'сок',
+        calories: 30
+    });
+    fridge.addFood({
+        title: 'зелень',
+        calories: 10
+    });
+    fridge.addFood({
+        title: 'варенье',
+        calories: 150
+    });
+
+    fridge.removeFood("нет такой еды"); // без эффекта
+
+    alert(fridge.getFood().length); // 4
+
+    var dietItems = fridge.filterFood(function (item) {
+        return item.calories < 50;
+    });
+
+    dietItems.forEach(function (item) {
+        alert( item.title ); // сок, зелень
+        fridge.removeFood(item);
+    });
+
+    alert( fridge.getFood().length ); // 2
+
+
+</script>

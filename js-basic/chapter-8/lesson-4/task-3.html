@@ -1,0 +1,58 @@
+<script>
+
+    function Machine(power) {
+        this._power = power;
+        this._enabled = false;
+
+        this.enable = function () {
+            this._enabled = true;
+        };
+
+        this.disable = function () {
+            this._enabled = false;
+        }
+    }
+
+    function Fridge(power) {
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxFoodAmount = power / 100;
+
+        this.addFood = function () {
+            if (!this._enabled) throw new Error('ошибка, холодильник выключен');
+            if (food.length + arguments.length > this._power / 100) {
+                throw new Error("ошибка, слишком много еды");
+            }
+            for (var i = 0; i < arguments.length; i++) {
+                food.push(arguments[i]); // добавить всё из arguments
+            }
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+    }
+
+    // var fridge = new Fridge(200);
+    // fridge.addFood('котлета'); // ошибка, холодильник выключен
+
+    // var fridge = new Fridge(500);
+    // fridge.enable();
+    // fridge.addFood('котлета');
+    // fridge.addFood('сок', 'зелень');
+    // fridge.addFood('варенье', "пирог", "торт"); // ошибка, слишком много еды
+
+    var fridge = new Fridge(500);
+    fridge.enable();
+    fridge.addFood('котлета');
+    fridge.addFood('сок', 'варенье');
+
+    var fridgeFood = fridge.getFood();
+    alert(fridgeFood); // котлета, сок, варенье
+
+    fridgeFood.push('вилка', 'ложка');
+
+    alert(fridge.getFood()); // котлета, сок, варенье
+
+</script>
