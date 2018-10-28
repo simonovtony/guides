@@ -1,0 +1,15 @@
+<script>
+
+    var animal = {
+        eats: true
+    };
+
+    var rabbit = {
+        jumps: true,
+        __proto__: animal
+    };
+
+    alert( rabbit.hasOwnProperty('jumps') ); // true: jumps принадлежит rabbit
+    alert( rabbit.hasOwnProperty('eatss') ); // false: eats не принадлежит
+
+</script>

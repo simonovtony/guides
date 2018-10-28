@@ -1,0 +1,17 @@
+<script>
+
+    var animal = {
+        eats: true
+    };
+
+    var rabbit = {
+        jumps: true
+    };
+
+    rabbit.__proto__ = animal;
+
+    // в rabbit можно найти оба свойства
+    alert(rabbit.jumps);
+    alert(rabbit.eats);
+
+</script>

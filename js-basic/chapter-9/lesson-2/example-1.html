@@ -1,0 +1,16 @@
+<script>
+
+    var animal = {
+        eats: true
+    };
+
+    function Rabbit(name) {
+        this.name = name;
+        this.__proto__ = animal;
+    }
+
+    var rabbit = new Rabbit('Кроль');
+
+    alert( rabbit.eats );
+
+</script>

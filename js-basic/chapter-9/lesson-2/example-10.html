@@ -1,0 +1,12 @@
+<script>
+
+    function inherit(proto) {
+        function F() {}
+        F.prototype = proto;
+        var object = new F();
+        return object;
+    }
+
+    if (!Object.create) Object.create = inherit;
+
+</script>

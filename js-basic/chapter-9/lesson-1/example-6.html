@@ -1,0 +1,27 @@
+<script>
+
+    var data = {};
+    data.text = "Привет";
+    data.age = 35;
+    // ...
+
+    /***************************************************************/
+
+    var data = {};
+    alert(data.toString); // функция, хотя мы её туда не записывали
+
+    /***************************************************************/
+
+    var data = {};
+    // выведет toString только если оно записано в сам объект
+    alert(data.hasOwnProperty('toString') ? data.toString : undefined);
+
+    /***************************************************************/
+
+    var data = Object.create(null);
+    data.text = "Привет";
+
+    alert( data.text); // Привет
+    alert( data.toString ); // undefined
+
+</script>

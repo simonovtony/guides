@@ -1,0 +1,15 @@
+<script>
+
+    var animal = {
+        eat: function () {
+            this.full = null;
+        }
+    };
+
+    var rabbit = {
+        __proto__: animal
+    };
+
+    rabbit.eat(); // Ответ: свойство full будет записано в rabbit.
+
+</script>

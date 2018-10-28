@@ -1,0 +1,94 @@
+<script>
+
+    // пример 1
+    (function () {
+
+        function Rabbit() {}
+        Rabbit.prototype = {
+            eats: true
+        };
+
+        var rabbit = new Rabbit();
+
+        alert( rabbit.eats ); // true
+        
+        // конструктор потерялся
+        // Результат: true, из прототипа
+    })();
+
+    // пример 2
+    (function () {
+
+        function Rabbit() {}
+        Rabbit.prototype = {
+            eats: true
+        };
+
+        var rabbit = new Rabbit();
+
+        Rabbit.prototype = {}
+
+        alert( rabbit.eats ); // true
+
+        // конструктор потерялся
+        // Результат: true. Свойство prototype всего лишь задаёт __proto__ у новых объектов. 
+        // Так что его изменение не повлияет на rabbit.__proto__. Свойство eats будет получено из прототипа.
+    })();
+
+    // пример 3
+    (function () {
+
+        function Rabbit() {}
+        Rabbit.prototype = {
+            eats: true
+        };
+
+        var rabbit = new Rabbit();
+
+        Rabbit.prototype.eats = false;
+
+        alert( rabbit.eats ); // false
+
+        // конструктор потерялся
+        // Результат: false. Свойство Rabbit.prototype и rabbit.__proto__ указывают на один и тот же объект. 
+        // В данном случае изменения вносятся в сам объект.
+    })();
+
+    // пример 4
+    (function () {
+
+        function Rabbit() {}
+        Rabbit.prototype = {
+            eats: true
+        };
+
+        var rabbit = new Rabbit();
+
+        delete rabbit.eats;
+
+        alert( rabbit.eats ); // true
+
+        // Результат: true, так как delete rabbit.eats попытается удалить eats из rabbit, где его и так нет. 
+        // А чтение в alert произойдёт из прототипа.
+    })();
+
+    // пример 5
+    (function () {
+
+        function Rabbit() {}
+        Rabbit.prototype = {
+            eats: true
+        };
+
+        var rabbit = new Rabbit();
+
+        delete Rabbit.prototype.eats;
+
+        alert( rabbit.eats ); // undefined
+
+        // Результат: undefined. Удаление осуществляется из самого прототипа, 
+        // поэтому свойство rabbit.eats больше взять неоткуда.
+    })();
+    
+
+</script>
