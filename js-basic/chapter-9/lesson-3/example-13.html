@@ -1,0 +1,20 @@
+<script>
+
+    Object.prototype.each = function (f) {
+        for (var prop in this) {
+            if (!this.hasOwnProperty(prop)) continue;
+            var value = this[prop];
+            f.call(value, prop, value);
+        }
+    };
+
+    var obj = {
+        name: 'Вася',
+        age: 25
+    };
+
+    obj.each(function (prop, value) {
+        alert( prop );
+    });
+
+</script>

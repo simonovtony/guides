@@ -1,0 +1,20 @@
+<script>
+
+    Function.prototype.defer = function (ms) {
+        var self = this;
+        return function () {
+            var context = this;
+            var args = [].slice.call(arguments);
+            setTimeout(function () {
+                self.apply(context, args);
+            }, ms);
+        }
+    };
+
+    function f(a, b) {
+        alert(a + b);
+    }
+
+    f.defer(1000)(1, 2);
+
+</script>
