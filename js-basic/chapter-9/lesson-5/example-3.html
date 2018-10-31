@@ -1,0 +1,15 @@
+<script>
+
+    function Rabbit (name) {
+        this.name = name;
+        this.speed = 0;
+    }
+
+    Rabbit.prototype.jump = function () {
+        this.speed++;
+        alert( this.name + ' прыгает' );
+    };
+
+    var rabbit = new Rabbit('Кроль');
+    
+</script>

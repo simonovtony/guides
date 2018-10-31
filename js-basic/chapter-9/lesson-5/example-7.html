@@ -1,0 +1,40 @@
+<script>
+
+    function Animal (name) {
+        this.name = name;
+        this.speed = 0;
+    }
+
+    Animal.prototype.run = function (speed) {
+        this.speed += speed;
+        alert( this.name + ' бежит, скорость ' + this.speed );
+    };
+
+    Animal.prototype.stop = function () {
+        this.speed = 0;
+        alert( this.name + ' стоит' );
+    };
+
+    function Rabbit (name) {
+        Animal.apply(this, arguments);
+    }
+
+    Rabbit.prototype = Object.create(Animal.prototype);
+    Rabbit.prototype.constructor = Rabbit;
+
+    Rabbit.prototype.jump = function () {
+        this.speed++;
+        alert(this.name + ' прыгает, скорость ' + this.speed);
+    };
+
+    Rabbit.prototype.run = function (/** speed */) {
+        /* Animal.prototype.run.call(this, speed) */
+        Animal.prototype.run.apply(this, arguments);
+        this.jump();
+    };
+
+    var rabbit = new Rabbit('Кроль');
+    rabbit.run(10);
+    console.dir(rabbit);
+
+</script>

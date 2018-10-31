@@ -1,0 +1,14 @@
+<script>
+
+    function Animal () {
+        this.walk = function () {
+            alert('walk');
+        };
+        alert('Му-у-у!');
+    }
+
+    function Rabbit () {
+        Animal.apply(this, arguments); // как избавиться от мычания, но получить walk?
+    }
+
+</script>

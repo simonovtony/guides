@@ -1,0 +1,14 @@
+<script>
+
+    function Animal(name) {
+        this._name = name;
+    }
+
+    Animal.prototype.sayHi = function() {
+        alert(this._name);
+    };
+
+    var animal = new Animal('Зверь');
+    animal.sayHi();
+
+</script>
