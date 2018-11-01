@@ -1,0 +1,44 @@
+<script>
+
+    function Animal(name) {
+        this.name = name;
+
+        this.walk = function () {
+            alert('ходит ' + this.name);
+        };
+    }
+
+    function Rabbit(name) {
+        Animal.apply(this, arguments);
+    }
+
+    Rabbit.prototype = Object.create(Animal.prototype);
+
+    // Этот метод не сработает, потому Rabbit.prototype.walk будет перезаписан в конструкторе Animal
+    Rabbit.prototype.walk = function () {
+        alert('прыгает ' + this.name);
+    };
+
+    var rabbit = new Rabbit('Кроль');
+    rabbit.walk(); // ходит Кроль
+
+    /**
+        Не правильно:
+        function Animal(name) {
+            this.name = name;
+
+            this.walk = function () {
+                alert('ходит ' + this.name);
+            };
+        }
+        
+        Правильно:
+        function Animal (name) {
+            this.name = name;
+        }
+        Animal.prototype.walk = function () {
+            alert('ходит ' + this.name);
+        };
+    */
+
+</script>

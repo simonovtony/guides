@@ -1,0 +1,61 @@
+<script>
+
+    function Clock(options) {
+        this._timer = null;
+        this._template = options.template;
+    };
+
+    Clock.prototype._render = function () {
+        var time = this._template;
+        var now = new Date();
+
+        var hours = now.getHours();
+        hours = hours < 10 ? '0' + hours : hours;
+        time = time.replace('h', hours);
+
+        var minutes = now.getMinutes();
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        time = time.replace('m', minutes);
+
+        var seconds = now.getSeconds();
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        time = time.replace('s', seconds);
+
+        console.log(time);
+    };
+
+    Clock.prototype.start = function () {
+        this._render();
+        var self = this;
+        this._timer  = setInterval(function () {
+            self._render();
+        }, 1000);
+    };
+
+    Clock.prototype.stop = function () {
+        clearInterval(this._timer);
+    };
+
+    function ExtendedClock(options) {
+        Clock.apply(this, arguments);
+        this._precision = options.precision;
+    }
+
+    ExtendedClock.prototype = Object.create(Clock.prototype);
+    ExtendedClock.prototype.constructor = ExtendedClock;
+
+    ExtendedClock.prototype.start = function () {
+        this._render();
+        var self = this;
+        this._timer = setInterval(function () {
+            self._render();
+        }, this._precision);
+    };
+
+    var lowResolutionClock = new ExtendedClock({
+        template: 'h:m:s',
+        precision: 10000
+    });
+    lowResolutionClock.start();
+
+</script>

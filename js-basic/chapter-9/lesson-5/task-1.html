@@ -1,0 +1,34 @@
+<script>
+
+    function Animal(name) {
+        this.name = name;
+    }
+
+    Animal.prototype.walk = function () {
+        alert('ходит ' + this.name);
+    };
+
+    function Rabbit(name) {
+        this.name = name;
+    }
+
+    // ошибка, Rabbit.prototype стал Animal.prototype
+    Rabbit.prototype = Animal.prototype;
+
+    // Rabbit.prototype.walk перезапишет Animal.prototype.walk 
+    Rabbit.prototype.walk = function () {
+        alert('прыгает! и ходит: ' + this.name);
+    };
+
+    var animal = new Animal("Хрюшка");
+    animal.walk(); // прыгает! и ходит: Хрюша
+
+    /**
+        Не праивильно:
+        Rabbit.prototype = Animal.prototype, 
+        
+        Правильно:
+        Rabbit.prototype = Object.create(Animal.prototype)
+    */
+
+</script>

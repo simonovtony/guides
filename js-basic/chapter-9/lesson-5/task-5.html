@@ -1,0 +1,91 @@
+<script>
+
+    function extend(child, parent) {
+        child.prototype = inherit(parent.prototype);
+        child.prototype.constructor = child;
+    }
+
+    function inherit(proto) {
+        function object() {}
+        object.prototype = proto;
+        return new object();
+    }
+
+    function Menu(state) {
+        this._state = state || Menu.STATE_CLOSED;
+    }
+
+    Menu.STATE_OPEN = 1;
+    Menu.STATE_CLOSED = 0;
+
+    Menu.prototype.open = function () {
+        this._state = Menu.STATE_OPEN;
+    };
+
+    Menu.prototype.close = function () {
+        this._state = Menu.STATE_CLOSED;
+    };
+
+    Menu.prototype._stateAsString = function () {
+        switch (this._state) {
+            case Menu.STATE_OPEN:
+                return 'открыто';
+            case Menu.STATE_CLOSED:
+                return 'закрыто';
+        }
+    };
+
+    Menu.prototype.showState = function () {
+        alert(this._stateAsString());
+        this._timer = null;
+    };
+
+    function AnimatingMenu(state) {
+        Menu.apply(this, arguments);
+    }
+
+    extend(AnimatingMenu, Menu);
+
+    AnimatingMenu.STATE_ANIMATING = 2;
+
+    AnimatingMenu.prototype.open = function () {
+        this._state = AnimatingMenu.STATE_ANIMATING;
+        var self = this;
+        this._timer = setTimeout(function () {
+            Menu.prototype.open.apply(self);
+        }, 1000);
+    };
+
+    AnimatingMenu.prototype.close = function () {
+        clearTimeout(this._timer);
+        Menu.prototype.close.apply(this);
+    }
+
+    AnimatingMenu.prototype._stateAsString = function () {
+        switch (this._state) {
+            case AnimatingMenu.STATE_ANIMATING:
+                return 'анимация';
+            default:
+                return Menu.prototype._stateAsString.apply(this);
+        }
+    }
+
+    console.log(AnimatingMenu.prototype);
+
+    // использование..
+
+    var menu = new AnimatingMenu();
+
+    menu.showState(); // закрыто
+
+    menu.open();
+    menu.showState(); // анимация
+
+    setTimeout(function() {
+        menu.showState(); // открыто
+
+        menu.close();
+        menu.showState(); // закрыто (закрытие без анимации)
+    }, 1000);
+
+</script>
