@@ -1,0 +1,49 @@
+<script>
+
+    function PropertyError (property) {
+        Error.call(this, property);
+        this.name = 'PropertyError';
+        this.message = 'Ошибка в свойстве ' + property;
+        this.property = property;
+
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, PropertyError);
+        } else {
+            this.stack = (new Error()).stack;
+        }
+    }
+
+    PropertyError.prototype = Object.create(Error.prototype);
+    PropertyError.prototype.constructor = PropertyError;
+
+    function readUser (data) {
+        var user = JSON.parse(data);
+
+        if (!user.age) {
+            throw new PropertyError('age');
+        }
+
+        if (!user.name) {
+            throw new PropertyError('name');
+        }
+
+        return user;
+    }
+
+    try {
+        var user = readUser('{ "age": 25 }');
+    } catch (err) {
+        if (err instanceof PropertyError) {
+            if (err.property == 'name') {
+                alert('Здравствуйте, Аноним!');
+            } else {
+                alert(err.message);
+            }
+        } else if (err instanceof SyntaxError) {
+            alert('Ошибка в синтаксисе данных: ' + err.message);
+        } else {
+            throw err;
+        }
+    }
+
+</script>

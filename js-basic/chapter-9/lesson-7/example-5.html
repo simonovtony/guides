@@ -1,0 +1,30 @@
+<script>
+
+    function PropertyError (property) {
+        Error.apply(this, arguments);
+        this.name = 'PropertyError';
+        this.message = 'Ошибка в свойстве ' + property;
+        this.property = property;
+
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, this.constructor);
+        } else {
+            this.stack = (new Error()).stack;
+        }
+    }
+    PropertyError.prototype = Object.create(Error.prototype);
+    PropertyError.prototype.constructor = PropertyError;
+
+    function PropertyRequiredError(property) {
+        PropertyError.apply(this, arguments);
+        this.name = 'PropertyRequiredError';
+        this.message = 'Отсутствует свойство ' + property;
+    }
+
+    PropertyRequiredError.prototype = Object.create(PropertyError.prototype);
+    PropertyRequiredError.prototype.constructor = PropertyRequiredError;
+
+    var err = new PropertyRequiredError('age');
+    alert( err instanceof PropertyError );
+
+</script>

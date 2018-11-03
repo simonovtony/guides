@@ -1,0 +1,38 @@
+<script>
+
+    function CustomError(message) {
+        Error.apply(this, arguments);
+        this.name = 'CustomError';
+        this.message = message;
+        this.stack = (new Error()).stack;
+    }
+
+    CustomError.prototype = Object.create(Error.prototype);
+    CustomError.prototype.constructor = CustomError;
+
+    function PropertyError(property) {
+        CustomError.call(this, 'Ошибка в свойстве ' + property);
+        this.name = 'PropertyError';
+        this.property = property;
+    }
+
+    PropertyError.prototype = Object.create(CustomError.prototype);
+    PropertyError.prototype.constructor = PropertyError;
+
+    function PropertyRequiredError(property) {
+        PropertyError.call(this, property);
+        this.name = 'PropertyRequiredError';
+        this.message = 'Отсутствует свойство ' + property;
+    }
+
+    PropertyRequiredError.prototype = Object.create(PropertyError.prototype);
+    PropertyRequiredError.prototype.constructor = PropertyRequiredError;
+
+    var err = new PropertyRequiredError('age');
+
+    alert (err instanceof PropertyRequiredError); // true
+    alert (err instanceof PropertyError); // true
+    alert (err instanceof CustomError); // true
+    alert (err instanceof Error); // true
+
+</script>

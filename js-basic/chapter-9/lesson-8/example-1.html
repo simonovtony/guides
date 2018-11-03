@@ -1,0 +1,20 @@
+<script>
+
+    var sayHiMixin = {
+        sayHi: function () {
+            alert('Привет ' + this.name);
+        },
+        sayBye: function () {
+            alert('Пока ' + this.name);
+        }
+    };
+
+    function User(name) {
+        this.name = name;
+    }
+
+    for (var key in sayHiMixin) User.prototype[key] = sayHiMixin[key];
+
+    new User('Вася').sayHi();
+
+</script>

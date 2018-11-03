@@ -1,0 +1,21 @@
+<script>
+
+    function FormatError(message) {
+        SyntaxError.call(this, message);
+        this.name = 'FormatError';
+        this.message = message;
+        this.stack = (new Error()).stack;
+    }
+
+    FormatError.prototype = Object.create(SyntaxError.prototype);
+    FormatError.prototype.constructor = FormatError;
+
+    var err = new FormatError('ошибка форматировния');
+
+    alert(err.message);
+    alert(err.name); // FormatError
+    alert(err.stack);
+
+    alert(err instanceof SyntaxError); // true
+
+</script>

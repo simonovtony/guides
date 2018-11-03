@@ -1,0 +1,19 @@
+<script>
+
+    function PropertyError(property) {
+        Error.call(this, property);
+        this.name = "PropertyError";
+        this.property = property;
+        this.message = 'Ошибка в свойстве ' + property;
+
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, PropertyError);
+        } else {
+            this.stack = (new Error()).stack;
+        }
+    }
+
+    PropertyError.prototype = Object.create(Error.prototype);
+    PropertyError.prototype.constructor = PropertyError;
+
+</script>
