@@ -1,0 +1,12 @@
+<script>
+
+    function defaultLastName() {
+        return Date.now() + '-visitor';
+    }
+
+    let [firstName, lastName = defaultLastName()] = ['Вася'];
+
+    alert(firstName); // Вася
+    alert(lastName);  // 1436...-visitor
+
+</script>
