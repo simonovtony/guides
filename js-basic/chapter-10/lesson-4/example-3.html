@@ -1,0 +1,13 @@
+<script>
+
+    function sayHi(who = getCurrentUser().toUpperCase()) {
+        alert("Привет, " + who);
+    }
+
+    function getCurrentUser() {
+        return 'Вася';
+    }
+
+    sayHi(); // Привет, ВАСЯ
+
+</script>
