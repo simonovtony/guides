@@ -1,0 +1,19 @@
+<script>
+
+    let animal = {
+        walk() {
+            alert(`I'm walking`);
+        }
+    };
+
+    let rabbit = {
+        __proto__: animal,
+        walk() {
+            alert( super.walk );
+            super.walk();
+        }
+    };
+
+    rabbit.walk();
+
+</script>

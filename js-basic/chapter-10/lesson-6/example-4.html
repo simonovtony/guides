@@ -1,0 +1,11 @@
+<script>
+
+    let user = { name: 'Вася' };
+    let visitor = { isAdmin: false, visitor: true };
+    let admin = { isAdmin: true };
+
+    Object.assign(user, visitor, admin);
+
+    alert(JSON.stringify(user)); // name: Вася, visits: true, isAdmin: true
+
+</script>

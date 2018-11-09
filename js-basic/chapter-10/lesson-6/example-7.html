@@ -1,0 +1,16 @@
+<meta charset="utf-8">
+<script>
+
+    let name = 'Вася';
+
+    let user = {
+        name,
+        // вместо "sayHi: function() {...}" пишем "sayHi() {...}"
+        sayHi() {
+            alert(this.name);
+        }
+    };
+
+    user.sayHi();
+
+</script>

@@ -1,0 +1,15 @@
+<script>
+
+    let methodName = 'getFirstName';
+
+    let user = {
+        // в квадратных скобках может быть любое выражение,
+        // которое должно вернуть название метода
+        [methodName]() { // вместо [methodName]: function {
+            return 'Вася'
+        }
+    }
+
+    alert( user.getFirstName() );
+
+</script>

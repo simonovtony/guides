@@ -1,0 +1,15 @@
+<script>
+
+    let name = 'Вася', surname = 'Петров';
+
+    let user = {
+        name,
+        surname,
+        get fullName() {
+            return `${name} ${surname}`;
+        }
+    }
+
+    alert( user.fullName );
+
+</script>

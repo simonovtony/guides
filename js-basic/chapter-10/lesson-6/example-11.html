@@ -1,0 +1,18 @@
+<script>
+
+    let animal = {
+        walk() {
+            alert(`I'm walking`);
+        }
+    };
+
+    let rabbit = {
+        __proto__: animal,
+        walk: function () { // Надо: walk() {
+            super.walk(); // будет, ошибка
+        }
+    };
+
+    rabbit.walk();
+
+</script>
