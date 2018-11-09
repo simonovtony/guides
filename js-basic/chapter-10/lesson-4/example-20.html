@@ -1,0 +1,13 @@
+<script>
+
+    let group = {
+        title: 'Наш курс',
+        students: ['Вася', 'Петя', 'Даша'],
+        showList: function () {
+            this.students.forEach(student => alert(this.title + ': ' + student));
+        }
+    }
+
+    group.showList();
+
+</script>
