@@ -1,0 +1,20 @@
+<script>
+
+    // str востанавливает строку
+    function str(strings, ...values) {
+        let str = '';
+        for (let i = 0; i < values.length; i++) {
+            str += strings[i];
+            str += values[i];
+        }
+        // последний кусок строки
+        str += strings[strings.length - 1];
+        return str;
+    }
+
+    let apples = 3;
+    let oranges = 5;
+
+    alert ( str`Sum of ${apples} + ${oranges} = ${apples + oranges}` );
+
+</script>

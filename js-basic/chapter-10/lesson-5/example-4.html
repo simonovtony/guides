@@ -1,0 +1,14 @@
+<script>
+
+    function f(strings, ...values) {
+        alert(JSON.stringify(strings));     // ['Sum of ', ' + ', ' =\n ', '!']
+        alert(JSON.stringify(strings.raw)); // ['Sum of ', ' + ', ' =\\n ', '!']
+        alert(JSON.stringify(values));      // [3, 5, 8]
+    }
+
+    let apples = 3;
+    let oranges = 5;
+
+    let str = f`Sum of ${apples} + ${oranges} = \n ${apples + oranges}!`;
+
+</script>
