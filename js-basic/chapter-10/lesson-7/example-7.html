@@ -1,0 +1,20 @@
+<script>
+
+    class User {
+        constructor(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        static createGuest() {
+            return new User('Гость', 'Сайта');
+        }
+    }
+
+    let user = User.createGuest();
+
+    alert( user.firstName ); // Гость
+
+    alert( User.createGuest ); // createGuest ... (функция)
+
+</script>

@@ -1,0 +1,18 @@
+<script>
+
+    class Animal {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+
+    class Rabbit {
+        constructor() {
+            alert(this); // ошибка, this не определен
+            super(); // теперь создан this, super должен быть вызван первым после обьявления
+        }
+    }
+
+    new Rabbit();
+
+</script>

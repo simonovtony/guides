@@ -1,0 +1,28 @@
+<script>
+
+    class User {
+        constructor(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        get fullName() {
+            return `${this.firstName} ${this.lastName}`;
+        }
+
+        set fullName(newValue) {
+            [this.firstName, this.lastName] = newValue.split(' ');
+        }
+
+        ['test'.toUpperCase()]() {
+            alert('PASSED!');
+        }
+    }
+
+    let user = new User('Вася', 'Пупков');
+    alert( user.fullName );
+    user.fullName = 'Иван Петров';
+    alert( user.fullName );
+    user.TEST();
+
+</script>
