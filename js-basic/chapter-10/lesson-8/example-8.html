@@ -1,0 +1,12 @@
+<script>
+
+    let isAdmin = Symbol('isAdmin');
+
+    let user = {
+        name: 'Вася',
+        [isAdmin]: true
+    };
+
+    alert(user[isAdmin]); // true
+
+</script>

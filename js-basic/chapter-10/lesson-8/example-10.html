@@ -1,0 +1,12 @@
+<script>
+
+    let obj = {
+        iterator: 1,
+        [Symbol.iterator]: function() { }
+    };
+
+    alert( Object.getOwnPropertySymbols(obj)[0].toString() ); // Symbol(Symbol.iterator)
+
+    alert( Object.getOwnPropertyNames(obj) ); // iterator
+
+</script>

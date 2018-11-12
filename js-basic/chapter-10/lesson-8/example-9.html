@@ -1,0 +1,13 @@
+<script>
+
+    let user = {
+        name: 'Вася',
+        age: 30,
+        [Symbol.for('isAdmin')]: true
+    };
+
+    alert( Object.keys(user) ); // name, age
+
+    alert( user[Symbol.for('isAdmin')] ); // true
+
+</script>
