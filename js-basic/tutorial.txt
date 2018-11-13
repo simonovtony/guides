@@ -592,4 +592,9 @@
         * Свой итератор
         * Встроенные итераторы
         * Итого
+    10 ** Set, Map, WeakSet, WeakMap
+        * Map
+        * Set
+        * WeakMap и WeakSet
+        * Итого
     

@@ -1,0 +1,34 @@
+<script>
+
+    let range = {
+        from: 1,
+        to: 5,
+        [Symbol.iterator]() {
+            return this;
+        },
+        next() {
+            if (this.current === undefined) {
+                this.current = this.from;
+            }
+
+            if (this.current <= this.to) {
+                return {
+                    done: false,
+                    value: this.current++
+                };
+            } else {
+                delete this.current;
+                return {
+                    done: true
+                };
+            }
+        }
+    }
+
+    for (let num of range) {
+        alert(num); // 1, затем 2, 3, 4, 5
+    }
+
+    alert( Math.max(...range) ); // 5 (*)
+
+</script>

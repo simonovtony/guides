@@ -1,0 +1,16 @@
+<script>
+
+    let str = "Hello";
+
+    // Делает то же, что и
+    // for (var letter of str) alert(letter);
+
+    let iterator = str[Symbol.iterator]();
+
+    while (true) {
+        let result = iterator.next();
+        if (result.done) break;
+        alert(result.value); // Выведет все буквы по очереди
+    }
+
+</script>
