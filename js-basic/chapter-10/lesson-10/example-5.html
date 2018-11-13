@@ -1,0 +1,40 @@
+<script>
+
+    let recipeMap = new Map([
+        ['огурцов', '500 гр'],
+        ['помидоров', '350 гр'],
+        ['сметаны', '50 гр']
+    ]);
+
+    // цикл по ключам
+    for (let fruit of recipeMap.keys()) {
+        alert(fruit); 
+    }
+
+    // цикл по значениям
+    for (let amount of recipeMap.values()) {
+        alert(amount);
+    }
+
+    // цикл по записям [ключ, значение]
+    for (let entry of recipeMap.entries()) {
+        alert(entry);
+    }
+
+    /**
+     * ECMAScript 2018
+     */
+
+    // for (let [key, value] of recipeMap.entries()) {
+    //     alert(`${key} => ${value}`);
+    // }
+
+    // for (let [key, value] of Object.entries([1, 2, 3])) {
+    //     alert(`${key} => ${value}`);
+    // }
+
+    // for (let [key, value] of Object.entries({ name: 'Вася', age: 25 })) {
+    //     alert(`${key} => ${value}`);
+    // }
+
+</script>

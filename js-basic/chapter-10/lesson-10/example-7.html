@@ -1,0 +1,19 @@
+<script>
+
+let set = new Set();
+
+let vasya = { name: 'Вася' };
+let petya = { name: 'Петя' };
+let dasha = { name: 'Даша' };
+
+set.add(vasya);
+set.add(petya);
+set.add(dasha);
+set.add(vasya);
+set.add(petya);
+
+alert( set.size ); // 3
+
+set.forEach( user => alert(user.name) );
+
+</script>

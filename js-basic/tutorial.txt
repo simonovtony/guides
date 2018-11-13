@@ -597,4 +597,3 @@
         * Set
         * WeakMap и WeakSet
         * Итого
-    

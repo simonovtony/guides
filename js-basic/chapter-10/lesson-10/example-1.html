@@ -1,0 +1,16 @@
+<script>
+
+    let map = new Map();
+
+    map.set('1', 'str1');   // ключ-строка
+    map.set(1, 'num1');     // число
+    map.set(true, 'bool1'); // булевое значение
+
+    // в обычном обьекте это было бы одно и тоже,
+    // map сохраняет тип ключа
+    alert( map.get(1) );    // 'num1'
+    alert( map.get('1') );  // 'str1'
+
+    alert( map.size ); // 3
+
+</script>
