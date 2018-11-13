@@ -597,3 +597,16 @@
         * Set
         * WeakMap и WeakSet
         * Итого
+    11 ** Promise
+        * Что такое Promise?
+        * Пример с setTimeout
+        * Promise после reject/resolve - неизменны
+        * Промисификация
+        * Цепочка промисов
+        * Перехват ошибок
+        * Промисы в деталях
+        * Параллельное выполнение
+        * Promise.resolve(value)
+        * Promise.reject(value)
+        * Итого
+        * Задачи
