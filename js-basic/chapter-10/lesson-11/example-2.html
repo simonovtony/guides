@@ -1,0 +1,15 @@
+<script>
+
+    var promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject(new Error('время вышло!'));
+        }, 1000);
+    });
+
+    promise
+        .then(
+            result => alert('Fulfilled: ' + result),
+            error => alert("Rejected: " + error.message)
+        );
+
+</script>

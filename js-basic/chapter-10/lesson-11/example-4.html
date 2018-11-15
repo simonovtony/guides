@@ -1,0 +1,16 @@
+<script>
+
+    let promise = new Promise((resolve, reject) => {
+        // reject вызван раньше, resolve будет проигнорирован
+        setTimeout(() => reject(new Error('error')), 1000);
+
+        setTimeout(() => resolve('ignored'), 2000);
+    });
+
+    promise
+        .then(
+            result => alert('Fulfilled: ' + result), // не сработает
+            error => alert('Rejected: ' + error) // сработает
+        );
+
+</script>
