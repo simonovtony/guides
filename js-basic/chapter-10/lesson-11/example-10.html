@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <title></title>
+    <body>
+
+        <script>
+            
+            function httpGet(url) {
+                return new Promise(function (resolve, reject) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', url, true);
+                    xhr.onload = function () {
+                        if (this.status === 200) {
+                            resolve(this.response);
+                        } else {
+                            var error = new Error(this.statusText);
+                            error.code = this.status;
+                            reject(error);
+                        }
+                    };
+                    xhr.onerror = function () {
+                        reject(new Error('Network Error'));
+                    }
+                    xhr.send();
+                });
+            }
+
+            httpGet('/article/promise/userNoGithub.json')
+                .then(JSON.parse)
+                .then(user => httpGet(`https://api.github.com/users/${user.name}`))
+                .then(
+                    JSON.parse,
+                    function avatarError(error) {
+                        if (error.code === 404) {
+                            return { name: 'NoGithub', avatar_url: '/article/promise/anon.png' };
+                        } else {
+                            throw error;
+                        }
+                    }
+                )
+                .then(function showAvatar(githubUser) {
+                    let img = new Image();
+                    img.src = githubUser.avatar_url;
+                    img.className = 'promise-avatar-example';
+                    document.body.appendChild(img);
+                    setTimeout(() => img.remove(), 3000);
+                })
+                .catch(function genericError(error) {
+                    alert(error); // Error: Not Found
+                });
+
+        </script>
+
+    </body>
+</html>
