@@ -1,0 +1,36 @@
+<script>
+
+    function httpGet(url) {
+        return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.onload = function () {
+                if (this.status === 200) {
+                    resolve(this.response);
+                } else {
+                    var error = new Error(this.statusText);
+                    error.code = this.status;
+                    reject(error);
+                }
+            };
+            xhr.onerror = function () {
+                reject(new Error('Network Error'));
+            }
+            xhr.send();
+        });
+    }
+
+    let urls = [
+        '/article/promise/user.json',
+        '/article/promise/guest.json'
+    ];
+
+    let chain = Promise.resolve();
+
+    urls.forEach(url => {
+        chain = chain
+            .then(() => httpGet(url))
+            .then(result => alert(result));
+    })
+
+</script>
