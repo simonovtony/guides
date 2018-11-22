@@ -1,0 +1,19 @@
+<script>
+
+    function* generatorSequence() {
+        yield 1;
+        yield 2; // { value: 2, done: false }
+        return 3;
+    }
+
+    let generator = generatorSequence();
+
+    let one = generator.next();
+
+    alert( JSON.stringify(one) );
+
+    let two = generator.next();
+
+    alert( JSON.stringify(two) ); // { value: 2, done: false }
+
+</script>

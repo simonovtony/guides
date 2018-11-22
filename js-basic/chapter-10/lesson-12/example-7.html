@@ -1,0 +1,15 @@
+<script>
+
+    function* generatorSequence() {
+        yield 1;
+        yield 2;
+        yield 3;
+    }
+
+    let generator = generatorSequence();
+
+    for (let value of generator) {
+        alert( value ); // 1, замет 2, затем 3
+    }
+
+</script>

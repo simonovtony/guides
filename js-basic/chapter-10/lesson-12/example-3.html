@@ -1,0 +1,15 @@
+<script>
+
+    function* generatorSequence() {
+        yield 1; // { value: 1, done: false }
+        yield 2;
+        return 3;
+    }
+
+    let generator = generatorSequence();
+
+    let one = generator.next();
+
+    alert( JSON.stringify(one) ); // { value: 1, done: false }
+
+</script>
