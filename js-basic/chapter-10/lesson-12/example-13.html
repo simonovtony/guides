@@ -1,0 +1,18 @@
+<script>
+
+    function* gen() {
+        try {
+            let result = yield "Сколько будет 2 + 2?"; // (**)
+            alert("выше будет исключение ^^^");
+        } catch (e) {
+            alert(e);
+        }
+    }
+
+    let generator = gen();
+
+    let question = generator.next().value;
+
+    generator.throw(new Error('ответ не найден в моей базе данных')); // (*)
+
+</script>
