@@ -1,0 +1,21 @@
+<script src="./co.js"></script>
+<script>
+
+    co(function *() {
+        let result = yield* gen();
+
+        alert(result); // hello
+    });
+
+    function* gen() {
+        return yield* gen2();
+    }
+
+    function* gen2() {
+        let result = yield new Promise( // (1)
+            resolve => setTimeout(resolve, 1000, 'hello')
+        );
+        return result;
+    }
+
+</script>

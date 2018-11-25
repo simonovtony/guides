@@ -1,0 +1,12 @@
+<script src="./co.js"></script>
+<script>
+
+    co(function*() {
+        // gen() и затем gen2() встраиваются во внешний генератор
+        let result = yield new Promise(
+            resolve => setTimeout(resolve, 1000, 'hello')
+        );
+        alert(result); // hello
+    });
+
+</script>

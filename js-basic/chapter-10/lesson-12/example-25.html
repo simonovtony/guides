@@ -1,0 +1,17 @@
+<script src="./co.js"></script>
+<script>
+
+    co(function *() {
+
+        // заменили yield на yield*
+        yield* g();
+
+    }).catch (function (err) {
+        alert(err.stack);
+    });
+
+    function* g() {
+        throw new Error("my error");
+    }
+
+</script>

@@ -1,0 +1,14 @@
+<script src="./co.js"></script>
+<script>
+
+    co(function* () {
+
+        let result = yield new Promise(
+            resolve => setTimeout(resolve, 1000, 1)
+        );
+
+        return result;
+
+    }).then(alert);
+
+</script>

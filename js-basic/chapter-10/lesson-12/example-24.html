@@ -1,0 +1,15 @@
+<script src="./co.js"></script>
+<script>
+
+    co(function* () {
+        // при запуске в стеке не будет видно этой строки
+        yield g(); // (*)
+    }).catch(function (err) {
+        alert(err.stack);
+    });
+
+    function *g() {
+        throw new Error("my error");
+    }
+
+</script>

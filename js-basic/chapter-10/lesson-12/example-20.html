@@ -1,0 +1,35 @@
+<script src="./co.js"></script>
+<script>
+
+    Object.defineProperty(window, 'result', {
+        // присвоение result=... будет выводить значение
+        set: value => alert(JSON.stringify(value))
+    });
+
+    co(function*() {
+        result = yield function*() { // генератор
+            return 1;
+        }();
+
+        result = yield function*() { // функция-генератор
+            return 2;
+        };
+
+        result = yield Promise.resolve(3); // промис
+
+        result = yield function (callback) { // function(callback)
+            setTimeout(() => callback(null, 4), 1000);
+        };
+
+        result = yield { // две задачи выполнит параллельно, как Promise.all
+            one: Promise.resolve(1),
+            two: function* () { return 2; }
+        };
+
+        result = yield [ // две задачи выполнит параллельно, как Promise.all
+            Promise.resolve(1),
+            function* () { return 2 }
+        ];
+    });
+
+</script>

@@ -1,0 +1,14 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/co/4.1.0/index.js"></script>
+<script>
+
+    co(function* () {
+
+        let result = yield new Promise(resolve => 
+            setTimeout(resolve, 1000, 1)
+        );
+
+        alert(1);
+
+    });
+
+</script>
