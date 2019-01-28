@@ -1,0 +1,44 @@
+
+class TaskQueue {
+    constructor(concurrency) {
+        this.concurrency = concurrency;
+        this.running = 0;
+        this.queue = [];
+    }
+
+    pushTask(task) {
+        this.queue.push(task);
+        this.next();
+    }
+
+    next() {
+        while (this.running < this.concurrency && this.queue.length) {
+            const task = this.queue.shift();
+            task(() => {
+                this.running--;
+                this.next();
+            });
+            this.running++;
+        }
+    }
+}
+
+const taskQueue = new TaskQueue(2);
+
+taskQueue.pushTask(() => {
+    setTimeout(() => {
+        console.log(1);
+    });
+});
+
+taskQueue.pushTask(() => {
+    setTimeout(() => {
+        console.log(2);
+    });
+});
+
+taskQueue.pushTask(() => {
+    setTimeout(() => {
+        console.log(3);
+    });
+});
