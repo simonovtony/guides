@@ -4,7 +4,7 @@ const request = require('request');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
-const utilities = require('./utilities');
+z
 
 function spider(url, nesting, callback) {
     const filename = utilities.urlToFilename(url);
